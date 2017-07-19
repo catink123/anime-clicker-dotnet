@@ -149,7 +149,7 @@ namespace Clicker
             level = 0;
             enemyImage.Source = new BitmapImage(new Uri(imagePath, UriKind.Relative));
             enemyName.Content = bossName;
-            enemyHpBar.Maximum = (enemyHp / 2) + enemyHp;
+            enemyHpBar.Maximum = enemyHp * 2;
             enemyHpBar.Value = enemyHpBar.Maximum;
         }
 
