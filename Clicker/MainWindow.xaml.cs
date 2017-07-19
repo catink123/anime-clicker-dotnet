@@ -129,7 +129,7 @@ namespace Clicker
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            changeAtk();
+            changeAtk(12);
         }
     }
 }
