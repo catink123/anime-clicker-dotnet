@@ -161,10 +161,7 @@ namespace Clicker
 
         private void spin_Click(object sender, RoutedEventArgs e)
         {
-            if (coins > spinCost)
-            {
-                coins -= spinCost;
-                randResult = random.Next(1, 11);
+                randResult = random.Next(1, 20);
                 switch (randResult)
                 {
                     case 1:
@@ -183,7 +180,7 @@ namespace Clicker
                         charName.Content = "Killoa";
                         break;
                     case 4:
-                        charColor.Fill = new SolidColorBrush(Colors.Blue);
+                        charColor.Fill = new SolidColorBrush(Colors.Purple);
                         charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero4.png", UriKind.Relative));
                         charName.Content = "Gon";
                         break;
@@ -217,14 +214,59 @@ namespace Clicker
                         charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero10.png", UriKind.Relative));
                         charName.Content = "Uchiha Saske";
                         break;
-                    default:
+                case 11:
+                    charColor.Fill = new SolidColorBrush(Colors.Blue);
+                    charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero11.png", UriKind.Relative));
+                    charName.Content = "Sanji";
+                    break;
+                case 12:
+                    charColor.Fill = new SolidColorBrush(Colors.Purple);
+                    charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero12.png", UriKind.Relative));
+                    charName.Content = "Zoro";
+                    break;
+                case 13:
+                    charColor.Fill = new SolidColorBrush(Colors.Orange);
+                    charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero13.png", UriKind.Relative));
+                    charName.Content = "Nami";
+                    break;
+                case 14:
+                    charColor.Fill = new SolidColorBrush(Colors.Blue);
+                    charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero14.png", UriKind.Relative));
+                    charName.Content = "Usopp";
+                    break;
+                case 15:
+                    charColor.Fill = new SolidColorBrush(Colors.Orange);
+                    charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero15.png", UriKind.Relative));
+                    charName.Content = "Monkey D. Luffy";
+                    break;
+                case 16:
+                    charColor.Fill = new SolidColorBrush(Colors.Orange);
+                    charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero16.png", UriKind.Relative));
+                    charName.Content = "Kurosaki Ichigo";
+                    break;
+                case 17:
+                    charColor.Fill = new SolidColorBrush(Colors.Purple);
+                    charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero17.png", UriKind.Relative));
+                    charName.Content = "Zaraki Kenpachi";
+                    break;
+                case 18:
+                    charColor.Fill = new SolidColorBrush(Colors.Purple);
+                    charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero18.png", UriKind.Relative));
+                    charName.Content = "Byakuya Kuchiki";
+                    break;
+                case 19:
+                    charColor.Fill = new SolidColorBrush(Colors.Orange);
+                    charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero19.png", UriKind.Relative));
+                    charName.Content = "Toshiro Hitsugaya";
+                    break;
+                case 20:
+                    charColor.Fill = new SolidColorBrush(Colors.Orange);
+                    charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero20.png", UriKind.Relative));
+                    charName.Content = "Monkey D. Luffy";
+                    break;
+                default:
                         break;
                 }
-            } else
-                {
-                MessageBox.Show("У тебя не достаточно денег!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
         }
     }
 }

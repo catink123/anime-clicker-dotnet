@@ -152,5 +152,35 @@
     <Resource Include="Images\heroImages\hero9.png" />
     <Resource Include="Images\heroImages\hero10.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heroImages\hero11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heroImages\hero12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heroImages\hero13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heroImages\hero15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heroImages\hero14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heroImages\hero16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heroImages\hero17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heroImages\hero18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heroImages\hero19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heroImages\hero20.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
