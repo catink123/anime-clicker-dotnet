@@ -74,7 +74,7 @@ namespace Clicker
                 levelInfinity();
                 enemyHpLabel.Content = Convert.ToString(enemyHpBar.Value);
             }
-            Properties.Settings.Default.xp = hp;
+            Properties.Settings.Default.xp = xp;
             Properties.Settings.Default.level = level;
             Properties.Settings.Default.stage = stage;
             Properties.Settings.Default.coins = coins;
