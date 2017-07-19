@@ -50,12 +50,12 @@ namespace Clicker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100")]
-        public int hp {
+        public int xp {
             get {
-                return ((int)(this["hp"]));
+                return ((int)(this["xp"]));
             }
             set {
-                this["hp"] = value;
+                this["xp"] = value;
             }
         }
         

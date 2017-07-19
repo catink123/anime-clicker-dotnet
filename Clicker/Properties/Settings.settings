@@ -8,7 +8,7 @@
     <Setting Name="crystals" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="hp" Type="System.Int32" Scope="User">
+    <Setting Name="xp" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="atk" Type="System.Int32" Scope="User">

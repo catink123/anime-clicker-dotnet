@@ -22,7 +22,7 @@ namespace Clicker
     public partial class MainWindow : Window
     {
         public int coins = Properties.Settings.Default.coins;
-        public int hp = Properties.Settings.Default.hp;
+        public int xp = Properties.Settings.Default.xp;
         public int atk = Properties.Settings.Default.atk;
         public int crystals = Properties.Settings.Default.crystals;
         public int level = Properties.Settings.Default.level;
@@ -30,6 +30,7 @@ namespace Clicker
         public int nextPic;
         public int minEnemyHp = 10;
         public int maxEnemyHp = 20;
+        public int enemyHp;
 
         Random random = new Random();
 
@@ -37,8 +38,8 @@ namespace Clicker
         {
             InitializeComponent();
             coinsLabel.Content = coins;
-            hpBar.Value = hp;
-            hpLabel.Content = hp;
+            xpBar.Value = xp;
+            xpLabel.Content = xp;
             crystalsLabel.Content = crystals;
             atkLabel.Content = atk;
             enemyHpBar.Value = Properties.Settings.Default.enemyHp;
@@ -49,6 +50,7 @@ namespace Clicker
         private void Attack_Click(object sender, RoutedEventArgs e)
         {
             enemyHpBar.Value = enemyHpBar.Value - atk;
+            enemyHpLabel.Content = Convert.ToString(enemyHpBar.Value);
             if (enemyHpBar.Value <= 0)
             {
                 changelevel();
@@ -60,12 +62,19 @@ namespace Clicker
             level++;
             if (level == 10)
             {
-                boss("Images/bossImages/boss1.png", "Kuroro Lucifer", 30);
+                boss("Images/bossImages/boss1.png", "Kuroro Lucifer");
+                enemyHpLabel.Content = Convert.ToString(enemyHpBar.Value);
+            } else if (level == 9)
+            {
+                levelInfinity();
+                enemyHp = Convert.ToInt32(enemyHpBar.Value);
+                enemyHpLabel.Content = Convert.ToString(enemyHpBar.Value);
             } else
             {
                 levelInfinity();
+                enemyHpLabel.Content = Convert.ToString(enemyHpBar.Value);
             }
-            Properties.Settings.Default.hp = hp;
+            Properties.Settings.Default.xp = hp;
             Properties.Settings.Default.level = level;
             Properties.Settings.Default.stage = stage;
             Properties.Settings.Default.coins = coins;
@@ -134,13 +143,14 @@ namespace Clicker
             changePic();
         }
 
-        public void boss(string imagePath, string bossName, int bossHp)
+        public void boss(string imagePath, string bossName)
         {
             stage++;
             level = 0;
             enemyImage.Source = new BitmapImage(new Uri(imagePath, UriKind.Relative));
             enemyName.Content = bossName;
-            enemyHpBar.Value = bossHp;
+            enemyHpBar.Maximum = (enemyHp / 2) + enemyHp;
+            enemyHpBar.Value = enemyHpBar.Maximum;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)

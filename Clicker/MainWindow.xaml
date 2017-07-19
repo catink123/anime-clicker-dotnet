@@ -27,11 +27,11 @@
                 <ImageBrush ImageSource="Images/backgroundImages/background1.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
             <ProgressBar x:Name="enemyHpBar" HorizontalAlignment="Center" Height="22" VerticalAlignment="Center" Width="285" Value="10" Foreground="Red" Maximum="10" Background="#FF780000" Margin="0,330,0,0"/>
-            <Label x:Name="enemyName" Content="Joeno Joestar" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White" FontFamily="Segoe Script" FontSize="24" Background="#59000000" Width="287" Height="42" HorizontalContentAlignment="Center" FontWeight="Bold" Margin="112,0,109,-2"/>
+            <Label x:Name="enemyName" Content="Орк" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White" FontFamily="Segoe Script" FontSize="24" Background="#59000000" Width="287" Height="42" HorizontalContentAlignment="Center" FontWeight="Bold" Margin="112,0,109,-2"/>
             <Image x:Name="enemyImage" Height="351" Margin="66,15,75,85" Source="Images/enemyImages/enemy1.png" />
-            <ProgressBar x:Name="hpBar" HorizontalAlignment="Left" Height="15" Margin="438,0,0,0" VerticalAlignment="Top" Width="70" Value="100"/>
+            <ProgressBar x:Name="xpBar" HorizontalAlignment="Left" Height="15" Margin="438,0,0,0" VerticalAlignment="Top" Width="70" Value="100"/>
             <Label Content="XP:" HorizontalAlignment="Left" Margin="384,0,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI Black" FontSize="22" Background="#59000000"/>
-            <Label x:Name="hpLabel" Content="100" HorizontalAlignment="Left" Margin="438,15,0,0" VerticalAlignment="Top" Foreground="#FF06B025" FontFamily="Segoe UI Black" FontSize="9" Background="#59000000" Height="24" Width="70" HorizontalContentAlignment="Center"/>
+            <Label x:Name="xpLabel" Content="100" HorizontalAlignment="Left" Margin="438,15,0,0" VerticalAlignment="Top" Foreground="#FF06B025" FontFamily="Segoe UI Black" FontSize="9" Background="#59000000" Height="24" Width="70" HorizontalContentAlignment="Center"/>
             <Label Content="ATK:" HorizontalAlignment="Left" Margin="370,39,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI Black" FontSize="22" Background="#59000000"/>
             <Label x:Name="atkLabel" Content="1" HorizontalAlignment="Left" Margin="438,39,0,0" VerticalAlignment="Top" Foreground="#FF0097FF" FontFamily="Segoe UI Black" FontSize="20" Background="#59000000" Height="39" Width="70" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Label x:Name="coinsLabel" Content="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFFFF300" FontFamily="Segoe UI Black" FontSize="20" Background="#59000000" Height="39" Width="70" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
@@ -81,6 +81,7 @@
                 </Button.Style>
             </Button>
             <Image HorizontalAlignment="Center" Height="64" Margin="0,352,0,0" VerticalAlignment="Center" Width="288" Source="Images/miscImages/enemyHpBar.png"/>
+            <Label x:Name="enemyHpLabel" Content="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontFamily="Segoe UI Black" FontSize="20" Background="#00000000" Height="38" Width="292" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,325,0,0"/>
         </Grid>
 
     </Grid>
