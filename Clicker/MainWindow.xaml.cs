@@ -54,12 +54,15 @@ namespace Clicker
             if (enemyHpBar.Value <= 0)
             {
                 changelevel();
+                
             }
         }
 
         public void changelevel()
         {
             level++;
+            xp = xp + (enemyHp / 3);
+            xpLabel.Content = Convert.ToString(xp);
             if (level == 10)
             {
                 boss("Images/bossImages/boss1.png", "Kuroro Lucifer");
@@ -79,6 +82,7 @@ namespace Clicker
             Properties.Settings.Default.stage = stage;
             Properties.Settings.Default.coins = coins;
             Properties.Settings.Default.crystals = crystals;
+            enemyHp = Convert.ToInt32(enemyHpBar.Value);
         }
 
         public void changeEnemyHp(int value1, int value2)

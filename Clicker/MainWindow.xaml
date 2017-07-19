@@ -10,15 +10,25 @@
         <Grid Width="346" HorizontalAlignment="Right">
             <TabControl HorizontalAlignment="Left" Height="449" VerticalAlignment="Top" Width="346">
                 <TabItem Header="Character Shop">
-                    <Grid Background="#FFE5E5E5"/>
+                    <Image HorizontalAlignment="Left" Height="421" VerticalAlignment="Top" Width="340" Source="Images/miscImages/shop.png" Stretch="Fill" Cursor="Arrow"/>
                 </TabItem>
                 <TabItem Header="Weapon Shop">
+                    <TabItem.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TabItem.Background>
                     <Grid Background="#FFE5E5E5">
-                        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="34,52,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="23*"/>
+                            <ColumnDefinition Width="147*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image HorizontalAlignment="Left" Height="421" VerticalAlignment="Top" Width="340" Source="Images/miscImages/shop.png" Stretch="Fill" Cursor="Arrow" Grid.ColumnSpan="2"/>
                     </Grid>
                 </TabItem>
                 <TabItem Header="Crystal Shop">
-                    <Grid Background="#FFE5E5E5"/>
+                    <Image HorizontalAlignment="Left" Height="421" VerticalAlignment="Top" Width="340" Source="Images/miscImages/shop.png" Stretch="Fill" Cursor="Arrow"/>
                 </TabItem>
             </TabControl>
         </Grid>
@@ -28,38 +38,38 @@
             </Grid.Background>
             <ProgressBar x:Name="enemyHpBar" HorizontalAlignment="Center" Height="22" VerticalAlignment="Center" Width="285" Value="10" Foreground="Red" Maximum="10" Background="#FF780000" Margin="0,330,0,0"/>
             <Label x:Name="enemyName" Content="Орк" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White" FontFamily="Segoe Script" FontSize="24" Background="#59000000" Width="287" Height="42" HorizontalContentAlignment="Center" FontWeight="Bold" Margin="112,0,109,-2"/>
-            <Image x:Name="enemyImage" Height="351" Margin="66,15,75,85" Source="Images/enemyImages/enemy1.png" />
+            <Image x:Name="enemyImage" Height="351" Margin="66,15,75,85" Source="Images/enemyImages/enemy1.png" RenderTransformOrigin="0.5,0.5" >
+                <Image.RenderTransform>
+                    <TranslateTransform Y="0"/>
+                </Image.RenderTransform>
+            </Image>
             <ProgressBar x:Name="xpBar" HorizontalAlignment="Left" Height="15" Margin="438,0,0,0" VerticalAlignment="Top" Width="70" Value="100"/>
-            <Label Content="XP:" HorizontalAlignment="Left" Margin="384,0,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI Black" FontSize="22" Background="#59000000"/>
-            <Label x:Name="xpLabel" Content="100" HorizontalAlignment="Left" Margin="438,15,0,0" VerticalAlignment="Top" Foreground="#FF06B025" FontFamily="Segoe UI Black" FontSize="9" Background="#59000000" Height="24" Width="70" HorizontalContentAlignment="Center"/>
+            <Label Content="XP:" HorizontalAlignment="Left" Margin="386,0,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI Black" FontSize="22" Background="#59000000"/>
+            <Label x:Name="xpLabel" Content="0" HorizontalAlignment="Left" Margin="438,15,0,0" VerticalAlignment="Top" Foreground="#FF06B025" FontFamily="Segoe UI Black" Background="#59000000" Height="24" Width="70" HorizontalContentAlignment="Center"/>
             <Label Content="ATK:" HorizontalAlignment="Left" Margin="370,39,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI Black" FontSize="22" Background="#59000000"/>
             <Label x:Name="atkLabel" Content="1" HorizontalAlignment="Left" Margin="438,39,0,0" VerticalAlignment="Top" Foreground="#FF0097FF" FontFamily="Segoe UI Black" FontSize="20" Background="#59000000" Height="39" Width="70" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Label x:Name="coinsLabel" Content="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFFFF300" FontFamily="Segoe UI Black" FontSize="20" Background="#59000000" Height="39" Width="70" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Label Content="C:" HorizontalAlignment="Right" Margin="0,0,75,-1" VerticalAlignment="Bottom" Foreground="White" FontFamily="Segoe UI Black" FontSize="22" Background="#59000000"/>
             <Label Content="I:" HorizontalAlignment="Right" Margin="0,0,75,38" VerticalAlignment="Bottom" Foreground="White" FontFamily="Segoe UI Black" FontSize="22" Background="#59000000" Width="31" RenderTransformOrigin="-0.516,0.513"/>
             <Label x:Name="crystalsLabel" Content="1" HorizontalAlignment="Right" Margin="0,0,0,39" VerticalAlignment="Bottom" Foreground="White" FontFamily="Segoe UI Black" FontSize="20" Background="#59000000" Height="39" Width="70" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-            <Button x:Name="Attack" Content="ATTACK!" Background="#7F000000" BorderBrush="#7F000000" Click="Attack_Click" Foreground="White" FontSize="24" FontWeight="Bold" FontStyle="Italic" Width="100" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Background" Value="#7F000000"/>
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border Background="{TemplateBinding Background}">
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="Black"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Button x:Name="enemyAttack" Content="" Background="#00000000" BorderBrush="#00000000" Click="Attack_Click" Foreground="White" FontSize="24" FontWeight="Bold" FontStyle="Italic" Width="372" Height="351" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="66,0,0,85">
+            <Button x:Name="enemyAttack" Content="" Background="#00000000" BorderBrush="#00000000" Click="Attack_Click" Foreground="White" FontSize="24" FontWeight="Bold" FontStyle="Italic" Width="372" Height="351" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="66,0,0,85" RenderTransformOrigin="0.5,0.5">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="ButtonBase.Click">
+                        <BeginStoryboard>
+                            <Storyboard AutoReverse="True">
+                                <DoubleAnimation 
+                                Storyboard.TargetName="enemyName"
+                                Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+                                To="-25"
+                                Duration="0:0:0.30">
+                                    <DoubleAnimation.EasingFunction>
+                                        <QuarticEase EasingMode="EaseIn"/>
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="Background" Value="#7F000000"/>
