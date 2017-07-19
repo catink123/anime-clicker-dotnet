@@ -109,7 +109,7 @@
     <Resource Include="Images\enemyImages\enemy2.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\bossImages\enemy3.png" />
+    <Resource Include="Images\bossImages\boss1.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\heroImages\hero2.png" />

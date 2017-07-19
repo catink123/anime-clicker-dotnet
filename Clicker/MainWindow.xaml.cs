@@ -57,7 +57,14 @@ namespace Clicker
 
         public void changelevel()
         {
-            levelInfinity();
+            level++;
+            if (level == 10)
+            {
+                boss("Images/bossImages/boss1.png", "Kuroro Lucifer", 30);
+            } else
+            {
+                levelInfinity();
+            }
             Properties.Settings.Default.hp = hp;
             Properties.Settings.Default.level = level;
             Properties.Settings.Default.stage = stage;
@@ -125,6 +132,15 @@ namespace Clicker
             changeCoins(100);
             System.Threading.Thread.Sleep(50);
             changePic();
+        }
+
+        public void boss(string imagePath, string bossName, int bossHp)
+        {
+            stage++;
+            level = 0;
+            enemyImage.Source = new BitmapImage(new Uri(imagePath, UriKind.Relative));
+            enemyName.Content = bossName;
+            enemyHpBar.Value = bossHp;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
