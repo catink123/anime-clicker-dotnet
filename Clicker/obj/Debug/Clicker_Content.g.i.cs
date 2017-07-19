@@ -8,6 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/backgroundimages/back1.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/heroimages/kakashi.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/heroimages/madara.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/heroimages/naruto.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/heroimages/obito.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/heroimages/sakura.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/heroimages/saske.png")]
 
 

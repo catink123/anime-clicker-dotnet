@@ -100,9 +100,6 @@
     <Resource Include="Images\backgroundImages\background1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\heroImages\hero1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\enemyImages\enemy1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +137,20 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\backgroundImages\background2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heroImages\hero1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\miscImages\spinner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heroImages\hero6.png" />
+    <Resource Include="Images\bossImages\boss2.png" />
+    <Resource Include="Images\heroImages\hero7.png" />
+    <Resource Include="Images\heroImages\hero8.png" />
+    <Resource Include="Images\heroImages\hero9.png" />
+    <Resource Include="Images\heroImages\hero10.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

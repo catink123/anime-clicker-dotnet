@@ -106,5 +106,17 @@ namespace Clicker.Properties {
                 this["enemyHp"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public int spinCost {
+            get {
+                return ((int)(this["spinCost"]));
+            }
+            set {
+                this["spinCost"] = value;
+            }
+        }
     }
 }
