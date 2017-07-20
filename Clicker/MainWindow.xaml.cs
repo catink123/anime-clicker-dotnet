@@ -51,7 +51,7 @@ namespace Clicker
             crystalsLabel.Content = crystals;
             atkLabel.Content = atk;
             System.Threading.Thread.Sleep(10);
-            changelevel();
+            changePic();
             Inventory.ItemsSource = charList;
             Inventory.Items.Refresh();
             xpBar.Maximum = levelUpXp;
@@ -62,6 +62,7 @@ namespace Clicker
             }
             enemyHpBar.Value = Properties.Settings.Default.enemyHp;
             spinCostLabel.Content = Convert.ToString(spinCost);
+            levelXpLabel.Content = levelXp;
         }
 
         private void Attack_Click(object sender, RoutedEventArgs e)
@@ -327,7 +328,7 @@ namespace Clicker
                         charList.Add("Byakuya Kuchiki");
                         break;
                     case 19:
-                        charColor.Fill = new SolidColorBrush(Colors.Orange);
+                        charColor.Fill = new SolidColorBrush(Colors.Purple);
                         charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero19.png", UriKind.Relative));
                         charName.Content = "Toshiro Hitsugaya";
                         charList.Add("Toshiro Hitsugaya");
