@@ -1,0 +1,13 @@
+D:\Anime Clicker\anime-clicker\Clicker\bin\Release\Clicker.exe.config
+D:\Anime Clicker\anime-clicker\Clicker\bin\Release\Clicker.exe
+D:\Anime Clicker\anime-clicker\Clicker\bin\Release\Clicker.pdb
+D:\Anime Clicker\anime-clicker\Clicker\obj\Release\MainWindow.g.cs
+D:\Anime Clicker\anime-clicker\Clicker\obj\Release\App.g.cs
+D:\Anime Clicker\anime-clicker\Clicker\obj\Release\Clicker_MarkupCompile.cache
+D:\Anime Clicker\anime-clicker\Clicker\obj\Release\Clicker_MarkupCompile.lref
+D:\Anime Clicker\anime-clicker\Clicker\obj\Release\MainWindow.baml
+D:\Anime Clicker\anime-clicker\Clicker\obj\Release\Clicker.g.resources
+D:\Anime Clicker\anime-clicker\Clicker\obj\Release\Clicker.Properties.Resources.resources
+D:\Anime Clicker\anime-clicker\Clicker\obj\Release\Clicker.csproj.GenerateResource.Cache
+D:\Anime Clicker\anime-clicker\Clicker\obj\Release\Clicker.exe
+D:\Anime Clicker\anime-clicker\Clicker\obj\Release\Clicker.pdb

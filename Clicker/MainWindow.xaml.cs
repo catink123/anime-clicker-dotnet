@@ -34,8 +34,12 @@ namespace Clicker
         public int enemyHp;
         public int randResult;
         public bool isInventoryOpen;
-        List<string> charList = new List<string>();
+        public int levelXp = Properties.Settings.Default.levelXp;
+        public int levelUpXp = Properties.Settings.Default.levelUpXp;
+        public int additionXp;
+        public bool isBoss = Properties.Settings.Default.isBoss;
 
+        List<string> charList = new List<string>();
         Random random = new Random();
 
         public MainWindow()
@@ -46,11 +50,18 @@ namespace Clicker
             xpLabel.Content = xp;
             crystalsLabel.Content = crystals;
             atkLabel.Content = atk;
-            enemyHpBar.Value = Properties.Settings.Default.enemyHp;
             System.Threading.Thread.Sleep(10);
             changelevel();
             Inventory.ItemsSource = charList;
             Inventory.Items.Refresh();
+            xpBar.Maximum = levelUpXp;
+            xpBar.Value = xp;
+            if (isBoss)
+            {
+                boss("Images/bossImages/boss1.png", "Kuroro Lucifer");
+            }
+            enemyHpBar.Value = Properties.Settings.Default.enemyHp;
+            spinCostLabel.Content = Convert.ToString(spinCost);
         }
 
         private void Attack_Click(object sender, RoutedEventArgs e)
@@ -60,7 +71,11 @@ namespace Clicker
             if (enemyHpBar.Value <= 0)
             {
                 changelevel();
-                
+                if(isBoss)
+                {
+                    addCrystals(1);
+                    isBoss = false;
+                }
             }
         }
 
@@ -68,7 +83,28 @@ namespace Clicker
         {
             level++;
             xp = xp + (enemyHp / 3);
+            xpBar.Value = xp;
             xpLabel.Content = Convert.ToString(xp);
+            if (xp == levelUpXp)
+            {
+                xp = 0;
+                levelUpXp += random.Next(1, 20);
+                levelXp++;
+                xpLabel.Content = Convert.ToString(xp);
+                xpBar.Maximum = levelUpXp;
+                levelXpLabel.Content = Convert.ToString(levelXp);
+                changeAtk(1);
+            } else if (xp > levelUpXp)
+            {
+                additionXp = xp - levelUpXp;
+                xp = additionXp;
+                levelUpXp += random.Next(1, 20);
+                levelXp++;
+                xpLabel.Content = Convert.ToString(xp);
+                xpBar.Maximum = levelUpXp;
+                xpBar.Value = xp;
+                levelXpLabel.Content = Convert.ToString(levelXp);
+            }
             if (level == 10)
             {
                 boss("Images/bossImages/boss1.png", "Kuroro Lucifer");
@@ -89,6 +125,8 @@ namespace Clicker
             Properties.Settings.Default.coins = coins;
             Properties.Settings.Default.crystals = crystals;
             Properties.Settings.Default.Save();
+            Properties.Settings.Default.levelUpXp = levelUpXp;
+            Properties.Settings.Default.levelXp = levelXp;
             enemyHp = Convert.ToInt32(enemyHpBar.Value);   
         }
 
@@ -102,6 +140,12 @@ namespace Clicker
         {
             coins = coins + random.Next(1, value);
             coinsLabel.Content = Convert.ToString(coins);
+        }
+
+        public void addCrystals(int value)
+        {
+            crystals++;
+            crystalsLabel.Content = Convert.ToString(crystals);
         }
 
         public void changeAtk(int value)
@@ -162,6 +206,7 @@ namespace Clicker
             enemyName.Content = bossName;
             enemyHpBar.Maximum = enemyHp * 2;
             enemyHpBar.Value = enemyHpBar.Maximum;
+            isBoss = true;
         }
 
         private void spin_Click(object sender, RoutedEventArgs e)

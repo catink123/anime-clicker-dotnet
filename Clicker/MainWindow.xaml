@@ -18,11 +18,12 @@
                     <TranslateTransform Y="0"/>
                 </Image.RenderTransform>
             </Image>
-            <ProgressBar x:Name="xpBar" HorizontalAlignment="Left" Height="15" Margin="438,0,0,0" VerticalAlignment="Top" Width="70" Value="100"/>
-            <Label Content="XP:" HorizontalAlignment="Left" Margin="386,0,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI Black" FontSize="22" Background="#59000000"/>
-            <Label x:Name="xpLabel" Content="0" HorizontalAlignment="Left" Margin="438,15,0,0" VerticalAlignment="Top" Foreground="#FF06B025" FontFamily="Segoe UI Black" Background="#59000000" Height="24" Width="70" HorizontalContentAlignment="Center"/>
-            <Label Content="ATK:" HorizontalAlignment="Left" Margin="370,39,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI Black" FontSize="22" Background="#59000000"/>
-            <Label x:Name="atkLabel" Content="1" HorizontalAlignment="Left" Margin="438,39,0,0" VerticalAlignment="Top" Foreground="#FF0097FF" FontFamily="Segoe UI Black" FontSize="20" Background="#59000000" Height="39" Width="70" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <ProgressBar x:Name="xpBar" HorizontalAlignment="Right" Height="15" Margin="0" VerticalAlignment="Top" Width="70" Maximum="20"/>
+            <Label Content="XP:" HorizontalAlignment="Right" Margin="0,0,75,0" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI Black" FontSize="22" Background="#59000000"/>
+            <Label x:Name="xpLabel" Content="0" HorizontalAlignment="Right" Margin="0,15,0,0" VerticalAlignment="Top" Foreground="#FF06B025" FontFamily="Segoe UI Black" Background="#59000000" Height="24" Width="70" HorizontalContentAlignment="Center"/>
+            <Label Content="ATK:" HorizontalAlignment="Right" Margin="0,78,75,0" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI Black" FontSize="22" Background="#59000000"/>
+            <Label Content="LVL:" HorizontalAlignment="Right" Margin="0,39,75,0" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI Black" FontSize="22" Background="#59000000"/>
+            <Label x:Name="atkLabel" Content="1" HorizontalAlignment="Right" Margin="0,78,0,0" VerticalAlignment="Top" Foreground="#FF0097FF" FontFamily="Segoe UI Black" FontSize="20" Background="#59000000" Height="39" Width="70" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Label x:Name="coinsLabel" Content="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFFFF300" FontFamily="Segoe UI Black" FontSize="20" Background="#59000000" Height="39" Width="70" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Label Content="C:" HorizontalAlignment="Right" Margin="0,0,75,-1" VerticalAlignment="Bottom" Foreground="White" FontFamily="Segoe UI Black" FontSize="22" Background="#59000000"/>
             <Label Content="I:" HorizontalAlignment="Right" Margin="0,0,75,38" VerticalAlignment="Bottom" Foreground="White" FontFamily="Segoe UI Black" FontSize="22" Background="#59000000" Width="31" RenderTransformOrigin="-0.516,0.513"/>
@@ -67,8 +68,9 @@
             </Button>
             <Image HorizontalAlignment="Center" Height="64" Margin="0,352,0,0" VerticalAlignment="Center" Width="288" Source="Images/miscImages/enemyHpBar.png"/>
             <Label x:Name="enemyHpLabel" Content="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontFamily="Segoe UI Black" FontSize="20" Background="#00000000" Height="38" Width="292" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,325,0,0"/>
+            <Label x:Name="levelXpLabel" Content="0" HorizontalAlignment="Right" Margin="0,39,0,0" VerticalAlignment="Top" Foreground="#FF06B025" FontFamily="Segoe UI Black" FontSize="20" Background="#59000000" Height="39" Width="70" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </Grid>
-        <TabControl HorizontalAlignment="Left" Height="451" Margin="508,0,0,0" VerticalAlignment="Top" Width="346">
+        <TabControl HorizontalAlignment="Right" Height="451" Margin="0" VerticalAlignment="Top" Width="346">
             <TabItem Header="Рулетка персонажей">
                 <Grid Background="#FFE5E5E5">
                     <Image HorizontalAlignment="Left" Height="423" VerticalAlignment="Top" Width="340" Stretch="Fill" Source="Images/miscImages/shop.png"/>
@@ -94,10 +96,10 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Weapon Shop">
-                <Grid Background="#FFE5E5E5"/>
+                <Image HorizontalAlignment="Left" Height="423" VerticalAlignment="Top" Width="340" Stretch="Fill" Source="Images/miscImages/shop.png"/>
             </TabItem>
             <TabItem Header="Crystal Shop">
-                <Grid Background="#FFE5E5E5"/>
+                <Image HorizontalAlignment="Left" Height="423" VerticalAlignment="Top" Width="340" Stretch="Fill" Source="Images/miscImages/shop.png"/>
             </TabItem>
         </TabControl>
 

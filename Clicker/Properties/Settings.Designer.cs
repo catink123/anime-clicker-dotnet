@@ -118,5 +118,41 @@ namespace Clicker.Properties {
                 this["spinCost"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public int levelUpXp {
+            get {
+                return ((int)(this["levelUpXp"]));
+            }
+            set {
+                this["levelUpXp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int levelXp {
+            get {
+                return ((int)(this["levelXp"]));
+            }
+            set {
+                this["levelXp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isBoss {
+            get {
+                return ((bool)(this["isBoss"]));
+            }
+            set {
+                this["isBoss"] = value;
+            }
+        }
     }
 }
