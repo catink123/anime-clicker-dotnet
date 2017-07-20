@@ -33,6 +33,7 @@ namespace Clicker
         public int maxEnemyHp = 20;
         public int enemyHp;
         public int randResult;
+        List<string> charList = new List<string>();
 
         Random random = new Random();
 
@@ -84,6 +85,7 @@ namespace Clicker
             Properties.Settings.Default.stage = stage;
             Properties.Settings.Default.coins = coins;
             Properties.Settings.Default.crystals = crystals;
+            Properties.Settings.Default.Save();
             enemyHp = Convert.ToInt32(enemyHpBar.Value);
         }
 
@@ -161,6 +163,10 @@ namespace Clicker
 
         private void spin_Click(object sender, RoutedEventArgs e)
         {
+            if (coins > spinCost)
+            {
+                coins -= spinCost;
+                coinsLabel.Content = Convert.ToString(coins);
                 randResult = random.Next(1, 20);
                 switch (randResult)
                 {
@@ -168,105 +174,135 @@ namespace Clicker
                         charColor.Fill = new SolidColorBrush(Colors.LimeGreen);
                         charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero1.png", UriKind.Relative));
                         charName.Content = "Leorio";
+                        charList.Add("Leorio");
                         break;
                     case 2:
                         charColor.Fill = new SolidColorBrush(Colors.Orange);
                         charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero2.png", UriKind.Relative));
                         charName.Content = "Hisoka";
+                        charList.Add("Hisoka");
                         break;
                     case 3:
                         charColor.Fill = new SolidColorBrush(Colors.Purple);
                         charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero3.png", UriKind.Relative));
                         charName.Content = "Killoa";
+                        charList.Add("Killoa");
                         break;
                     case 4:
                         charColor.Fill = new SolidColorBrush(Colors.Purple);
                         charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero4.png", UriKind.Relative));
                         charName.Content = "Gon";
+                        charList.Add("Gon");
                         break;
                     case 5:
                         charColor.Fill = new SolidColorBrush(Colors.Blue);
                         charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero5.png", UriKind.Relative));
                         charName.Content = "Kurapika";
+                        charList.Add("Kurapika");
                         break;
                     case 6:
                         charColor.Fill = new SolidColorBrush(Colors.Purple);
                         charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero6.png", UriKind.Relative));
                         charName.Content = "Hatake Kakashi";
+                        charList.Add("Hatake Kakashi");
                         break;
                     case 7:
                         charColor.Fill = new SolidColorBrush(Colors.Orange);
                         charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero7.png", UriKind.Relative));
                         charName.Content = "Uzumaki Naruto";
+                        charList.Add("Uzumaki Naruto");
                         break;
                     case 8:
                         charColor.Fill = new SolidColorBrush(Colors.Orange);
                         charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero8.png", UriKind.Relative));
                         charName.Content = "Uchiha Obito";
+                        charList.Add("Uchiha Obito");
                         break;
                     case 9:
                         charColor.Fill = new SolidColorBrush(Colors.LimeGreen);
                         charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero9.png", UriKind.Relative));
                         charName.Content = "Uchiha Sakura";
+                        charList.Add("Uchiha Sakura");
                         break;
                     case 10:
                         charColor.Fill = new SolidColorBrush(Colors.Orange);
                         charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero10.png", UriKind.Relative));
                         charName.Content = "Uchiha Saske";
+                        charList.Add("Uchiha Saske");
                         break;
-                case 11:
-                    charColor.Fill = new SolidColorBrush(Colors.Blue);
-                    charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero11.png", UriKind.Relative));
-                    charName.Content = "Sanji";
-                    break;
-                case 12:
-                    charColor.Fill = new SolidColorBrush(Colors.Purple);
-                    charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero12.png", UriKind.Relative));
-                    charName.Content = "Zoro";
-                    break;
-                case 13:
-                    charColor.Fill = new SolidColorBrush(Colors.Orange);
-                    charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero13.png", UriKind.Relative));
-                    charName.Content = "Nami";
-                    break;
-                case 14:
-                    charColor.Fill = new SolidColorBrush(Colors.Blue);
-                    charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero14.png", UriKind.Relative));
-                    charName.Content = "Usopp";
-                    break;
-                case 15:
-                    charColor.Fill = new SolidColorBrush(Colors.Orange);
-                    charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero15.png", UriKind.Relative));
-                    charName.Content = "Monkey D. Luffy";
-                    break;
-                case 16:
-                    charColor.Fill = new SolidColorBrush(Colors.Orange);
-                    charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero16.png", UriKind.Relative));
-                    charName.Content = "Kurosaki Ichigo";
-                    break;
-                case 17:
-                    charColor.Fill = new SolidColorBrush(Colors.Purple);
-                    charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero17.png", UriKind.Relative));
-                    charName.Content = "Zaraki Kenpachi";
-                    break;
-                case 18:
-                    charColor.Fill = new SolidColorBrush(Colors.Purple);
-                    charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero18.png", UriKind.Relative));
-                    charName.Content = "Byakuya Kuchiki";
-                    break;
-                case 19:
-                    charColor.Fill = new SolidColorBrush(Colors.Orange);
-                    charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero19.png", UriKind.Relative));
-                    charName.Content = "Toshiro Hitsugaya";
-                    break;
-                case 20:
-                    charColor.Fill = new SolidColorBrush(Colors.Orange);
-                    charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero20.png", UriKind.Relative));
-                    charName.Content = "Monkey D. Luffy";
-                    break;
-                default:
+                    case 11:
+                        charColor.Fill = new SolidColorBrush(Colors.Blue);
+                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero11.png", UriKind.Relative));
+                        charName.Content = "Sanji";
+                        charList.Add("Sanji");
                         break;
+                    case 12:
+                        charColor.Fill = new SolidColorBrush(Colors.Purple);
+                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero12.png", UriKind.Relative));
+                        charName.Content = "Zoro";
+                        charList.Add("Zoro");
+                        break;
+                    case 13:
+                        charColor.Fill = new SolidColorBrush(Colors.Orange);
+                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero13.png", UriKind.Relative));
+                        charName.Content = "Nami";
+                        charList.Add("Nami");
+                        break;
+                    case 14:
+                        charColor.Fill = new SolidColorBrush(Colors.Blue);
+                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero14.png", UriKind.Relative));
+                        charName.Content = "Usopp";
+                        charList.Add("Usopp");
+                        break;
+                    case 15:
+                        charColor.Fill = new SolidColorBrush(Colors.Orange);
+                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero15.png", UriKind.Relative));
+                        charName.Content = "Monkey D. Luffy";
+                        charList.Add("Monkey D. Luffy");
+                        break;
+                    case 16:
+                        charColor.Fill = new SolidColorBrush(Colors.Orange);
+                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero16.png", UriKind.Relative));
+                        charName.Content = "Kurosaki Ichigo";
+                        charList.Add("Kurosaki Ichigo");
+                        break;
+                    case 17:
+                        charColor.Fill = new SolidColorBrush(Colors.Purple);
+                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero17.png", UriKind.Relative));
+                        charName.Content = "Zaraki Kenpachi";
+                        charList.Add("Zaraki Kenpachi");
+                        break;
+                    case 18:
+                        charColor.Fill = new SolidColorBrush(Colors.Purple);
+                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero18.png", UriKind.Relative));
+                        charName.Content = "Byakuya Kuchiki";
+                        charList.Add("Byakuya Kuchiki");
+                        break;
+                    case 19:
+                        charColor.Fill = new SolidColorBrush(Colors.Orange);
+                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero19.png", UriKind.Relative));
+                        charName.Content = "Toshiro Hitsugaya";
+                        charList.Add("Toshiro Hitsugaya");
+                        break;
+                    case 20:
+                        charColor.Fill = new SolidColorBrush(Colors.Orange);
+                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero20.png", UriKind.Relative));
+                        charName.Content = "Inoue Orihime";
+                        charList.Add("Inoue Orihime");
+                        break;
+                    default:
+                        break;
+                        spinCost += 10;
+                        spinCostLabel.Content = Convert.ToString(spinCost);
+                        Properties.Settings.Default.spinCost = spinCost;
+                        Properties.Settings.Default.Save();
+                        Inventory.Items.Add(charList);
                 }
+            } else
+            {
+                MessageBox.Show("У вас не хватает денег!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            
         }
     }
 }
