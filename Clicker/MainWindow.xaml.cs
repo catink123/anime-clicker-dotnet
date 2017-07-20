@@ -33,6 +33,7 @@ namespace Clicker
         public int maxEnemyHp = 20;
         public int enemyHp;
         public int randResult;
+        public bool isInventoryOpen;
         List<string> charList = new List<string>();
 
         Random random = new Random();
@@ -48,6 +49,8 @@ namespace Clicker
             enemyHpBar.Value = Properties.Settings.Default.enemyHp;
             System.Threading.Thread.Sleep(10);
             changelevel();
+            Inventory.ItemsSource = charList;
+            Inventory.Items.Refresh();
         }
 
         private void Attack_Click(object sender, RoutedEventArgs e)
@@ -86,7 +89,7 @@ namespace Clicker
             Properties.Settings.Default.coins = coins;
             Properties.Settings.Default.crystals = crystals;
             Properties.Settings.Default.Save();
-            enemyHp = Convert.ToInt32(enemyHpBar.Value);
+            enemyHp = Convert.ToInt32(enemyHpBar.Value);   
         }
 
         public void changeEnemyHp(int value1, int value2)
@@ -292,17 +295,29 @@ namespace Clicker
                         break;
                     default:
                         break;
-                        spinCost += 10;
-                        spinCostLabel.Content = Convert.ToString(spinCost);
-                        Properties.Settings.Default.spinCost = spinCost;
-                        Properties.Settings.Default.Save();
-                        Inventory.Items.Add(charList);
                 }
+                spinCost += 10;
+                spinCostLabel.Content = Convert.ToString(spinCost);
+                Properties.Settings.Default.spinCost = spinCost;
+                Properties.Settings.Default.Save();
+                Inventory.Items.Refresh();
             } else
             {
                 MessageBox.Show("У вас не хватает денег!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             
+        }
+
+        private void InventoryToggle_Click(object sender, RoutedEventArgs e)
+        {
+            isInventoryOpen = !isInventoryOpen;
+            if (isInventoryOpen)
+            {
+                Inventory.Visibility = Visibility.Visible;
+            } else
+            {
+                Inventory.Visibility = Visibility.Hidden;
+            }
         }
     }
 }
