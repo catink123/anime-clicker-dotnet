@@ -154,5 +154,28 @@ namespace Clicker.Properties {
                 this["isBoss"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Generic.List<System.String> charList {
+            get {
+                return ((global::System.Collections.Generic.List<System.String>)(this["charList"]));
+            }
+            set {
+                this["charList"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int dps {
+            get {
+                return ((int)(this["dps"]));
+            }
+            set {
+                this["dps"] = value;
+            }
+        }
     }
 }

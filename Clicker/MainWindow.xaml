@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         xmlns:local="clr-namespace:Clicker"
         mc:Ignorable="d"
         Title="Anime Clicker" Height="480" Width="860" ResizeMode="NoResize" Background="Black">
@@ -69,6 +70,8 @@
             <Image HorizontalAlignment="Center" Height="64" Margin="0,352,0,0" VerticalAlignment="Center" Width="288" Source="Images/miscImages/enemyHpBar.png"/>
             <Label x:Name="enemyHpLabel" Content="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontFamily="Segoe UI Black" FontSize="20" Background="#00000000" Height="38" Width="292" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,325,0,0"/>
             <Label x:Name="levelXpLabel" Content="0" HorizontalAlignment="Right" Margin="0,39,0,0" VerticalAlignment="Top" Foreground="#FF06B025" FontFamily="Segoe UI Black" FontSize="20" Background="#59000000" Height="39" Width="70" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="dpsLabel" Content="1" HorizontalAlignment="Right" Margin="0,117,0,0" VerticalAlignment="Top" Foreground="Red" FontFamily="Segoe UI Black" FontSize="20" Background="#59000000" Height="39" Width="70" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Content="DPS:" HorizontalAlignment="Right" Margin="0,117,75,0" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI Black" FontSize="22" Background="#59000000"/>
         </Grid>
         <TabControl HorizontalAlignment="Right" Height="451" Margin="0" VerticalAlignment="Top" Width="346">
             <TabItem Header="Рулетка персонажей">
@@ -85,7 +88,7 @@
                     <Rectangle x:Name="charColor" Fill="#FF919191" Height="55" Margin="0,199,0,0" Stroke="Black" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200"/>
                     <Label x:Name="charName" Content="Нажмите на кнопку" HorizontalAlignment="Center" Margin="0,199,0,0" VerticalAlignment="Top" Height="55" Width="200" FontSize="18" FontFamily="MV Boli" Foreground="White"/>
                     <Grid HorizontalAlignment="Center" Height="145" Margin="0,54,0,0" VerticalAlignment="Top" Width="200">
-                        <Image x:Name="charImage" Source="Images/miscImages/spinner.png"/>
+                        <Image x:Name="charImage" Source="Images/miscImages/spinner.gif"/>
                     </Grid>
                     <Button x:Name="spin" Content="Крутить" HorizontalAlignment="Left" Margin="70,291,0,0" VerticalAlignment="Top" Width="200" Height="30" FontSize="20" Click="spin_Click"/>
                     <Label Content="Цена:" HorizontalAlignment="Left" Margin="70,0,0,76" VerticalAlignment="Bottom" Width="45" HorizontalContentAlignment="Right"/>

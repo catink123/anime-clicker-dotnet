@@ -12,17 +12,19 @@ c:\users\qwert\documents\visual studio 2017\Projects\Clicker\Clicker\obj\Debug\C
 c:\users\qwert\documents\visual studio 2017\Projects\Clicker\Clicker\obj\Debug\Clicker.csproj.GenerateResource.Cache
 c:\users\qwert\documents\visual studio 2017\Projects\Clicker\Clicker\obj\Debug\Clicker.exe
 c:\users\qwert\documents\visual studio 2017\Projects\Clicker\Clicker\obj\Debug\Clicker.pdb
-D:\Anime Clicker\anime-clicker\Clicker\bin\Debug\Clicker.exe.config
-D:\Anime Clicker\anime-clicker\Clicker\bin\Debug\Clicker.exe
-D:\Anime Clicker\anime-clicker\Clicker\bin\Debug\Clicker.pdb
 D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Clicker.csprojResolveAssemblyReference.cache
 D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\MainWindow.g.cs
 D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\App.g.cs
-D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Clicker_MarkupCompile.cache
-D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Clicker_MarkupCompile.lref
 D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\MainWindow.baml
-D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Clicker.g.resources
 D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Clicker.Properties.Resources.resources
 D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Clicker.csproj.GenerateResource.Cache
-D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Clicker.exe
-D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Clicker.pdb
+D:\Anime Clicker\anime-clicker\Clicker\bin\Debug\Anime Clicker.exe.config
+D:\Anime Clicker\anime-clicker\Clicker\bin\Debug\Anime Clicker.exe
+D:\Anime Clicker\anime-clicker\Clicker\bin\Debug\Anime Clicker.pdb
+D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Anime Clicker_MarkupCompile.cache
+D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Anime Clicker_MarkupCompile.lref
+D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Anime Clicker.g.resources
+D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Anime Clicker.exe
+D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Anime Clicker.pdb
+D:\Anime Clicker\anime-clicker\Clicker\bin\Debug\WpfAnimatedGif.dll
+D:\Anime Clicker\anime-clicker\Clicker\bin\Debug\WpfAnimatedGif.xml
