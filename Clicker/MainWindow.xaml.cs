@@ -69,8 +69,78 @@ namespace Clicker
             spinCostLabel.Content = spinCost;
             levelXpLabel.Content = levelXp;
             dpsLabel.Content = dps;
-            dpsTimer.Interval = new TimeSpan(0, 0, 1);
             dpsTimer.Tick += new EventHandler(dpsOnTimer);
+            dpsTimer.Interval = new TimeSpan(0, 0, 1);
+            dpsTimer.Start();
+        }
+
+        private void Attack_Click(object sender, RoutedEventArgs e)
+        {
+            enemyHpBar.Value = enemyHpBar.Value - atk;
+            enemyHpLabel.Content = Convert.ToString(enemyHpBar.Value);
+            if (enemyHpBar.Value <= 0)
+            {
+                changelevel();
+                if (isBoss)
+                {
+                    addCrystals(1);
+                    isBoss = false;
+                }
+            }
+        }
+
+        public void changelevel()
+        {
+            level++;
+            xp = xp + (enemyHp / 3);
+            xpBar.Value = xp;
+            xpLabel.Content = Convert.ToString(xp);
+            if (xp == levelUpXp)
+            {
+                xp = 0;
+                levelUpXp += random.Next(1, 20);
+                levelXp++;
+                xpLabel.Content = Convert.ToString(xp);
+                xpBar.Maximum = levelUpXp;
+                levelXpLabel.Content = Convert.ToString(levelXp);
+                changeAtk(1);
+            }
+            else if (xp > levelUpXp)
+            {
+                additionXp = xp - levelUpXp;
+                xp = additionXp;
+                levelUpXp += random.Next(1, 20);
+                levelXp++;
+                xpLabel.Content = Convert.ToString(xp);
+                xpBar.Maximum = levelUpXp;
+                xpBar.Value = xp;
+                levelXpLabel.Content = Convert.ToString(levelXp);
+            }
+            if (level == 10)
+            {
+                boss("Images/bossImages/boss1.png", "Kuroro Lucifer");
+                enemyHpLabel.Content = Convert.ToString(enemyHpBar.Value);
+            }
+            else if (level == 9)
+            {
+                levelInfinity();
+                enemyHp = Convert.ToInt32(enemyHpBar.Value);
+                enemyHpLabel.Content = Convert.ToString(enemyHpBar.Value);
+            }
+            else
+            {
+                levelInfinity();
+                enemyHpLabel.Content = Convert.ToString(enemyHpBar.Value);
+            }
+            Properties.Settings.Default.xp = xp;
+            Properties.Settings.Default.level = level;
+            Properties.Settings.Default.stage = stage;
+            Properties.Settings.Default.coins = coins;
+            Properties.Settings.Default.crystals = crystals;
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.levelUpXp = levelUpXp;
+            Properties.Settings.Default.levelXp = levelXp;
+            enemyHp = Convert.ToInt32(enemyHpBar.Value);
         }
 
         private void InventoryToggle_Click(object sender, RoutedEventArgs e)
