@@ -37,9 +37,13 @@
     <ApplicationIcon>Anime Clicker.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DotNetZip, Version=1.10.1.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.10.1\lib\net20\DotNetZip.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -52,9 +56,6 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="WpfAnimatedGif, Version=1.4.14.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WpfAnimatedGif.1.4.14\lib\net\WpfAnimatedGif.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -92,11 +93,54 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
+    <Resource Include="Images\miscImages\box1.png" />
+    <Resource Include="Images\miscImages\box2.png" />
+    <Resource Include="Images\miscImages\box3.png" />
+    <Resource Include="Images\miscImages\box4.png" />
+    <Resource Include="Images\weaponImages\weapon1.png" />
+    <Resource Include="Images\weaponImages\weapon2.png" />
+    <Resource Include="Images\weaponImages\weapon3.png" />
+    <Resource Include="Images\heroFaceImages\ByakuyaFace.jpg" />
+    <Resource Include="Images\heroFaceImages\GonFace.jpg" />
+    <Resource Include="Images\heroFaceImages\HisokaFace.png" />
+    <Resource Include="Images\heroFaceImages\HitsugayaFace.png" />
+    <Resource Include="Images\heroFaceImages\IchigoFace.png" />
+    <Resource Include="Images\heroFaceImages\KakashiFace.png" />
+    <Resource Include="Images\heroFaceImages\KenbachiFace.jpg" />
+    <Resource Include="Images\heroFaceImages\KilluaFace.png" />
+    <Resource Include="Images\heroFaceImages\KurapikaFace.png" />
+    <Resource Include="Images\heroFaceImages\LeorioFace.jpg" />
+    <Resource Include="Images\heroFaceImages\LuffyFace.png" />
+    <Resource Include="Images\heroFaceImages\NamiFace.jpg" />
+    <Resource Include="Images\heroFaceImages\NarutoFace.jpg" />
+    <Resource Include="Images\heroFaceImages\OrihimeFace.jpg" />
+    <Resource Include="Images\heroFaceImages\SakuraFace.jpg" />
+    <Resource Include="Images\heroFaceImages\SanjiFace.jpg" />
+    <Resource Include="Images\heroFaceImages\SasukeFace.jpg" />
+    <Resource Include="Images\heroFaceImages\UsoppFace.jpg" />
+    <Resource Include="Images\heroFaceImages\ZoroFace.jpg" />
+    <Resource Include="Images\heroFaceImages\DoflamingoFace.png" />
+    <Resource Include="Images\heroFaceImages\ErzaFace.png" />
+    <Resource Include="Images\heroFaceImages\GrayFace.png" />
+    <Resource Include="Images\heroFaceImages\GutsFace.jpg" />
+    <Resource Include="Images\heroFaceImages\HaruhiFace.jpg" />
+    <Resource Include="Images\heroFaceImages\KuroroFace.jpg" />
+    <Resource Include="Images\heroFaceImages\LaxusFace.png" />
+    <Resource Include="Images\heroFaceImages\LelouchFace.png" />
+    <Resource Include="Images\heroFaceImages\LucyFace.jpg" />
+    <Resource Include="Images\heroFaceImages\MadaraFace.jpg" />
+    <Resource Include="Images\heroFaceImages\NatsuFace.jpg" />
+    <Resource Include="Images\heroFaceImages\YhwachFace.png" />
+    <Resource Include="Images\heroFaceImages\ZerefFace.png" />
+    <Resource Include="Images\miscImages\xernya_kakaya_nibudz%27.png" />
+    <Resource Include="Images\heroFaceImages\ObitoFace.jpg" />
+    <Resource Include="Images\specialHeroImages\kit.jpg" />
+    <Resource Include="Images\specialHeroImages\koshena.jpg" />
+    <Content Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -195,5 +239,70 @@
   <ItemGroup>
     <Resource Include="Images\miscImages\spinner.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\miscImages\coins.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\miscImages\crystals.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heroImages\hero21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heroImages\hero22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heroImages\hero23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heroImages\hero24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heroImages\hero25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heroImages\hero26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heroImages\hero27.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bossImages\boss3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heroImages\hero28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bossImages\boss4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bossImages\boss5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\attack1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\attack2.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\attack3.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buyWeapon.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\enemyImages\enemy6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\enemyImages\enemy7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\enemyImages\enemy8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\enemyImages\enemy9.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

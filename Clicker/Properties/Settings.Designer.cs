@@ -157,9 +157,24 @@ namespace Clicker.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Collections.Generic.List<System.String> charList {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int dps {
             get {
-                return ((global::System.Collections.Generic.List<System.String>)(this["charList"]));
+                return ((int)(this["dps"]));
+            }
+            set {
+                this["dps"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
+            "org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n  <s" +
+            "tring>Inventory</string>\r\n</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection charList {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["charList"]));
             }
             set {
                 this["charList"] = value;
@@ -169,12 +184,12 @@ namespace Clicker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int dps {
+        public int cps {
             get {
-                return ((int)(this["dps"]));
+                return ((int)(this["cps"]));
             }
             set {
-                this["dps"] = value;
+                this["cps"] = value;
             }
         }
     }

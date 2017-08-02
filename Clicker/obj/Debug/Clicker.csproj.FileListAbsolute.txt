@@ -26,5 +26,4 @@ D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Anime Clicker_MarkupCompile.lre
 D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Anime Clicker.g.resources
 D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Anime Clicker.exe
 D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Anime Clicker.pdb
-D:\Anime Clicker\anime-clicker\Clicker\bin\Debug\WpfAnimatedGif.dll
-D:\Anime Clicker\anime-clicker\Clicker\bin\Debug\WpfAnimatedGif.xml
+D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Anime Clicker_Content.g.cs
