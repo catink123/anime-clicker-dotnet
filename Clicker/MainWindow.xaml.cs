@@ -16,8 +16,7 @@ using System.Configuration;
 using System.Windows.Threading;
 using System.Media;
 using System.IO;
-using System.IO.Compression;
-using lonic.zip.reduced;
+using Ionic.Zip;
 
 namespace Clicker
 {
@@ -914,18 +913,23 @@ namespace Clicker
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Directory.CreateDirectory("stats");
-            using (StreamWriter sw = File.CreateText("stats/stats"))
+            using (StreamWriter sw = File.CreateText("stats"))
             {
                 sw.WriteLine("LVL Персонажа: " + levelXp);
                 sw.WriteLine("DPC: " + atk);
                 sw.WriteLine("DPS: " + dps);
                 sw.WriteLine("********************");
-                sw.WriteLine("Level: " + level);
-                sw.WriteLine("Stage: " + stage);
+                sw.WriteLine("Stage: " + level);
+                sw.WriteLine("Level: " + stage);
             }
-            ZipFile.CreateFromDirectory(@"stats", "stats.zip");
-            MessageBox.Show("Зайдите в папку с игрой и отправьте файл ''stats.acp'' MoRset'у");
+            using (ZipFile zip = new ZipFile())
+            {
+                zip.Password = "1029384756";
+                zip.AddFile("stats");
+                zip.Save("stats.zip");
+            }
+            File.Delete("stats");
+            MessageBox.Show("Зайдите в папку с игрой и отправьте файл ''stats.zip'' MoRset'у");
         }
     }
 }
