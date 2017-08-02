@@ -117,6 +117,7 @@ namespace Clicker
                     levelXp++;
                     xpLabel.Content = Convert.ToString(xp);
                     xpBar.Maximum = levelUpXp;
+                    xpBar.Value = xp;
                     levelXpLabel.Content = Convert.ToString(levelXp);
                 }
                 else if (xp > levelUpXp)
@@ -711,6 +712,10 @@ namespace Clicker
                         break;
                 }
             }
+            else
+            {
+                MessageBox.Show("У вас не хватает кристалов!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         private void box2Spin_Click(object sender, RoutedEventArgs e)
@@ -771,6 +776,10 @@ namespace Clicker
                         changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/HitsugayaFace.jpg", "Хицугая", 4);
                         break;
                 }
+            }
+            else
+            {
+                MessageBox.Show("У вас не хватает кристалов!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
@@ -833,6 +842,10 @@ namespace Clicker
                         break;
                 }
             }
+            else
+            {
+                MessageBox.Show("У вас не хватает кристалов!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         private void box4Spin_Click(object sender, RoutedEventArgs e)
@@ -891,6 +904,9 @@ namespace Clicker
                         addAtk(30);
                         break;
                 }
+            } else
+            {
+                MessageBox.Show("У вас не хватает кристалов!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
@@ -919,8 +935,7 @@ namespace Clicker
                 sw.WriteLine("DPC: " + atk);
                 sw.WriteLine("DPS: " + dps);
                 sw.WriteLine("********************");
-                sw.WriteLine("Stage: " + level);
-                sw.WriteLine("Level: " + stage);
+                sw.WriteLine("Level: " + level);
             }
             using (ZipFile zip = new ZipFile())
             {
