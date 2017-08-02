@@ -16,7 +16,8 @@ using System.Configuration;
 using System.Windows.Threading;
 using System.Media;
 using System.IO;
-using System.Security.AccessControl;
+using System.IO.Compression;
+using lonic.zip.reduced;
 
 namespace Clicker
 {
@@ -913,8 +914,8 @@ namespace Clicker
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            using (var zip = new ZipFile())
-            using (StreamWriter sw = File.CreateText("stats"))
+            Directory.CreateDirectory("stats");
+            using (StreamWriter sw = File.CreateText("stats/stats"))
             {
                 sw.WriteLine("LVL Персонажа: " + levelXp);
                 sw.WriteLine("DPC: " + atk);
@@ -923,7 +924,7 @@ namespace Clicker
                 sw.WriteLine("Level: " + level);
                 sw.WriteLine("Stage: " + stage);
             }
-            File.Encrypt("stats");
+            ZipFile.CreateFromDirectory(@"stats", "stats.zip");
             MessageBox.Show("Зайдите в папку с игрой и отправьте файл ''stats.acp'' MoRset'у");
         }
     }

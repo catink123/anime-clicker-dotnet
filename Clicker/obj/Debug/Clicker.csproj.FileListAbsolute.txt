@@ -27,3 +27,4 @@ D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Anime Clicker.g.resources
 D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Anime Clicker.exe
 D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Anime Clicker.pdb
 D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Anime Clicker_Content.g.cs
+D:\Anime Clicker\anime-clicker\Clicker\bin\Debug\Ionic.Zip.Reduced.dll
