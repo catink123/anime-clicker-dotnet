@@ -17,6 +17,8 @@ using System.Windows.Threading;
 using System.Media;
 using System.IO;
 using Ionic.Zip;
+using System.Windows.Media.Animation;
+using System.Text.RegularExpressions;
 
 namespace Clicker
 {
@@ -80,6 +82,26 @@ namespace Clicker
             Inventory.Items.Refresh();
         }
 
+        public void HurtAnimation()
+        {
+            Storyboard storyboard = new Storyboard();
+
+            ScaleTransform scale = new ScaleTransform(1.0, 1.0);
+            enemyImage.RenderTransform = scale;
+
+            DoubleAnimation growAnimation = new DoubleAnimation();
+            growAnimation.Duration = TimeSpan.FromMilliseconds(100);
+            growAnimation.From = 1;
+            growAnimation.To = 0.9;
+            growAnimation.AutoReverse = true;
+            storyboard.Children.Add(growAnimation);
+
+            Storyboard.SetTargetProperty(growAnimation, new PropertyPath("RenderTransform.ScaleX"));
+            Storyboard.SetTarget(growAnimation, enemyImage);
+
+            storyboard.Begin();
+        }
+
         private void Attack_Click(object sender, RoutedEventArgs e)
         {
             randResult = random.Next(1, 4);
@@ -95,6 +117,7 @@ namespace Clicker
                     attackSound3.Play();
                     break;
             }
+            HurtAnimation();
             enemyHpBar.Value = enemyHpBar.Value - atk;
             enemyHpLabel.Content = Convert.ToString(enemyHpBar.Value);
             if (enemyHpBar.Value <= 0)
@@ -241,8 +264,40 @@ namespace Clicker
             crystalCharImage.Source = new BitmapImage(new Uri("Images/specialHeroImages/koshena.jpg", UriKind.Relative));
             crystalCharName.Content = "Рухлять Оранжевая";
             Properties.Settings.Default.charList.Add("Рухлять Оранжевая");
-            cps++;
+            cps += 5;
             Inventory.Items.Refresh();
+        }
+
+        public void addChar (string query)
+        {
+            bool isExist = false;
+            for (int i = 0; i < Inventory.Items.Count; i++)
+            {
+                var s = Inventory.Items[i].ToString();
+                if (s.StartsWith(query))
+                {
+                    if (s == query)
+                    {
+                        Inventory.Items[i] = query + "x2";
+                        isExist = true;
+                        break;
+                    }
+                    else
+                    {
+                        // Escape your plain text before use with regex
+                        var pattern = Regex.Escape(query);
+                        // Check if s has this formnat: queryx2, queryx3, queryx4, ...
+                        Match m = Regex.Match(s, "^" + pattern + @"x(\d+)$");
+                        if (m.Success)
+                        {
+                            Inventory.Items[i] = query + "x" + (Int32.Parse(m.Groups[1].Value) + 1);
+                            isExist = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            if (!isExist) Inventory.Items.Add(query);
         }
 
         private void spin_Click(object sender, RoutedEventArgs e)
@@ -453,7 +508,7 @@ namespace Clicker
                     default:
                         break;
                 }
-                spinCost += 10;
+                spinCost += 50;
                 dpsLabel.Content = dps;
                 spinCostLabel.Content = Convert.ToString(spinCost);
                 Properties.Settings.Default.spinCost = spinCost;
@@ -945,6 +1000,141 @@ namespace Clicker
             }
             File.Delete("stats");
             MessageBox.Show("Зайдите в папку с игрой и отправьте файл ''stats.zip'' MoRset'у");
+        }
+
+        private void Inventory_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if ((string)Inventory.SelectedItem == "Луффи")
+            {
+                MessageBox.Show("Имя: Монки Д. Луффи: Ван пис.", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Хисока") {
+                MessageBox.Show("Имя: Хисока Моро: Хантер х Хантер", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Гон")
+            {
+                MessageBox.Show("Имя: Гон Фрикс: Хантер х Хантер", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Нами")
+            {
+                MessageBox.Show("Имя: Нами: Ван пис", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Зоро")
+            {
+                MessageBox.Show("Имя: Ророноа Зоро: Ван пис", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Санджи")
+            {
+                MessageBox.Show("Имя: Винсмок Санджи: Ван пис", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Усопп")
+            {
+                MessageBox.Show("Имя: Усопп: Ван пис", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Ичиго")
+            {
+                MessageBox.Show("Имя: Куросаки Ичиго: Блич", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Натсу")
+            {
+                MessageBox.Show("Имя: Драгнил Натсу: Хвост феи", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Орихиме")
+            {
+                MessageBox.Show("Имя: Иноуэ Орихиме: Блич", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Леорио")
+            {
+                MessageBox.Show("Имя: Леорио Паладинайт: Хантер х Хантер", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Какаши")
+            {
+                MessageBox.Show("Имя: Хатаки Какаши: Наруто", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Наруто")
+            {
+                MessageBox.Show("Имя: Узумаки Наруто: Наруто", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Саске")
+            {
+                MessageBox.Show("Имя: Учиха Саске: Наруто", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Сакура")
+            {
+                MessageBox.Show("Имя: Харуна Сакура: Наруто", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Обито")
+            {
+                MessageBox.Show("Имя: Учиха Обито: Наруто", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Хицугая")
+            {
+                MessageBox.Show("Имя: Тоширо Хицугая: Блич", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Харухи")
+            {
+                MessageBox.Show("Имя: Судзумия Харухи: Меланхолия Судзумия Харухи", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Курапика")
+            {
+                MessageBox.Show("Имя: Курапика: Хантер х Хантер", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Киллуа")
+            {
+                MessageBox.Show("Имя: Золдзик Киллуа: Хантер х Хантер", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Гатс")
+            {
+                MessageBox.Show("Имя: Гатс: Берсерк", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Грэй")
+            {
+                MessageBox.Show("Имя: Фулбастер Грэй: Хвост феи", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Эльза")
+            {
+                MessageBox.Show("Имя: Скарлет Эльза: Хвост феи", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Лаксус")
+            {
+                MessageBox.Show("Имя: Дрейар Лаксус: Хвост феи", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Люси")
+            {
+                MessageBox.Show("Имя: Хартфилия Люси: Хвост феи", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Лелуш")
+            {
+                MessageBox.Show("Имя: Лелуш Британский: Код Гиас", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Бьякуя")
+            {
+                MessageBox.Show("Имя: Кучики Бьякуя: Блич", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Кенпачи")
+            {
+                MessageBox.Show("Имя: Зараки Кенпачи: Блич", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Куроро Люцифер")
+            {
+                MessageBox.Show("Имя: Куроро Люцифер: Хантер х Хантер", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Учиха Мадара")
+            {
+                MessageBox.Show("Имя: Учиха Мадара: Наруто", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Зереф Драгнил")
+            {
+                MessageBox.Show("Имя: Зереф Драгнил: Хвост Феи", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Донкихот Дофламинго")
+            {
+                MessageBox.Show("Имя: Докихот Дофламиго: Ван пис", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Яхве")
+            {
+                MessageBox.Show("Имя: Яхве Бах: Блич", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }
