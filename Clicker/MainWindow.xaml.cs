@@ -125,7 +125,7 @@ namespace Clicker
                 changelevel();
                 if (isBoss)
                 {
-                    addCrystals(1);
+                    addCrystals(random.Next(1,5));
                     isBoss = false;
                 }
                 xp = xp + (enemyHp / 3);
@@ -165,8 +165,9 @@ namespace Clicker
             level++;
             if (level == 10)
             {
+                level = 0;
                 stage++;
-                randResult = random.Next(1, 6);
+                randResult = random.Next(1, 9);
                 switch (randResult)
                 {
                     case 1:
@@ -183,6 +184,15 @@ namespace Clicker
                         break;
                     case 5:
                         boss("Images/bossImages/boss5.png", "Яхве Бах");
+                        break;
+                    case 6:
+                        boss("Images/bossImages/Dio.png", "Дио Бранде");
+                        break;
+                    case 7:
+                        boss("Images/bossImages/Frieza.png", "Фриза");
+                        break;
+                    case 8:
+                        boss("Images/bossImages/Gilgamesh.png", "Гильгамеш");
                         break;
                     default:
                         boss("Images/bossImages/boss1.png", "Куроро Люцифер");
@@ -233,7 +243,7 @@ namespace Clicker
             changePic();
         }
 
-        public void changeCharacter (Color color, string pathToImage, string characterName, int addDps)
+        public void changeCharacter(Color color, string pathToImage, string characterName, int addDps)
         {
             charColor.Fill = new SolidColorBrush(color);
             charImage.Source = new BitmapImage(new Uri(pathToImage, UriKind.Relative));
@@ -242,7 +252,7 @@ namespace Clicker
             dps += addDps;
         }
 
-        public void changeCrystalCharacter (Color color, string pathToImage, string characterName, int addDps)
+        public void changeCrystalCharacter(Color color, string pathToImage, string characterName, int addDps)
         {
             crystalSpinner.Visibility = Visibility.Visible;
             crystalCharColor.Fill = new SolidColorBrush(color);
@@ -268,7 +278,7 @@ namespace Clicker
             Inventory.Items.Refresh();
         }
 
-        public void addChar (string query)
+        public void addChar(string query)
         {
             bool isExist = false;
             for (int i = 0; i < Inventory.Items.Count; i++)
@@ -306,7 +316,7 @@ namespace Clicker
             {
                 coins -= spinCost;
                 coinsLabel.Content = Convert.ToString(coins);
-                randResult = random.Next(1, 29);
+                randResult = random.Next(1, 50);
                 switch (randResult)
                 {
                     case 1:
@@ -473,8 +483,8 @@ namespace Clicker
                     case 24:
                         charColor.Fill = new SolidColorBrush(Colors.LimeGreen);
                         charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero24.png", UriKind.Relative));
-                        charName.Content = "Люсси";
-                        Properties.Settings.Default.charList.Add("Люсси");
+                        charName.Content = "Люси";
+                        Properties.Settings.Default.charList.Add("Люси");
                         dps += 1;
                         break;
                     case 25:
@@ -504,6 +514,69 @@ namespace Clicker
                         charName.Content = "Гатс";
                         Properties.Settings.Default.charList.Add("Гатс");
                         dps += 8;
+                        break;
+                    case 29:
+                        changeCharacter(Colors.Orange, "Images/heroImages/Saber.png", "Сэйбер", 8);
+                        break;
+                    case 30:
+                        changeCharacter(Colors.Purple, "Images/heroImages/Berserk.png", "Берсерк", 4);
+                        break;
+                    case 31:
+                        changeCharacter(Colors.Purple, "Images/heroImages/Rider.png", "Райдер", 4);
+                        break;
+                    case 32:
+                        changeCharacter(Colors.Blue, "Images/heroImages/Lancer.png", "Лансер", 2);
+                        break;
+                    case 33:
+                        changeCharacter(Colors.Orange, "Images/heroImages/Shiro.png", "Широ", 8);
+                        break;
+                    case 34:
+                        changeCharacter(Colors.Purple, "Images/heroImages/Giorno.png", "Джорно", 4);
+                        break;
+                    case 35:
+                        changeCharacter(Colors.Purple, "Images/heroImages/Jonathan.png", "Джонатан", 4);
+                        break;
+                    case 36:
+                        changeCharacter(Colors.Purple, "Images/heroImages/Josuke.png", "Джоске", 4);
+                        break;
+                    case 37:
+                        changeCharacter(Colors.Blue, "Images/heroImages/Joseph.png", "Джозеф", 2);
+                        break;
+                    case 38:
+                        changeCharacter(Colors.Orange, "Images/heroImages/Jotaro.png", "Джотаро", 8);
+                        break;
+                    case 39:
+                        changeCharacter(Colors.Purple, "Images/heroImages/Gohan.png", "Гохан", 4);
+                        break;
+                    case 40:
+                        changeCharacter(Colors.Orange, "Images/heroImages/Goku.png", "Гоку", 8);
+                        break;
+                    case 41:
+                        changeCharacter(Colors.Blue, "Images/heroImages/Roshi.png", "Мастер Роши", 2);
+                        break;
+                    case 42:
+                        changeCharacter(Colors.Blue, "Images/heroImages/Piccolo.png", "Пикколо", 2);
+                        break;
+                    case 43:
+                        changeCharacter(Colors.Purple, "Images/heroImages/Vegeta.png", "Веджета", 4);
+                        break;
+                    case 44:
+                        changeCharacter(Colors.Blue, "Images/heroImages/Kirito.png", "Кирито", 2);
+                        break;
+                    case 45:
+                        changeCharacter(Colors.LimeGreen, "Images/heroImages/Onizuka.png", "Онидзука", 1);
+                        break;
+                    case 46:
+                        changeCharacter(Colors.Purple, "Images/heroImages/OmaShu.png", "Сю", 4);
+                        break;
+                    case 47:
+                        changeCharacter(Colors.Orange, "Images/heroImages/Puck.png", "✮Пак", 16);
+                        break;
+                    case 48:
+                        changeCharacter(Colors.Purple, "Images/heroImages/Sakamoto.png", "✮Сакамото", 8);
+                        break;
+                    case 49:
+                        changeCharacter(Colors.Purple, "Images/heroImages/LessRider.png", "✮Бесправный Ездок", 8);
                         break;
                     default:
                         break;
@@ -679,7 +752,8 @@ namespace Clicker
                 Properties.Settings.Default.atk = atk;
                 Properties.Settings.Default.coins = coins;
                 Properties.Settings.Default.Save();
-            } else
+            }
+            else
             {
                 MessageBox.Show("У вас не хватает денег!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
@@ -694,7 +768,8 @@ namespace Clicker
                 Properties.Settings.Default.atk = atk;
                 Properties.Settings.Default.coins = coins;
                 Properties.Settings.Default.Save();
-            } else
+            }
+            else
             {
                 MessageBox.Show("У вас не хватает денег!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
@@ -702,14 +777,15 @@ namespace Clicker
 
         private void weapon3Buy_Click(object sender, RoutedEventArgs e)
         {
-            if (coins >= 140)
+            if (coins >= 1024)
             {
-                addAtk(4);
-                removeCoins(140);
+                addAtk(40);
+                removeCoins(1024);
                 Properties.Settings.Default.atk = atk;
                 Properties.Settings.Default.coins = coins;
                 Properties.Settings.Default.Save();
-            } else
+            }
+            else
             {
                 MessageBox.Show("У вас не хватает денег!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
@@ -726,44 +802,62 @@ namespace Clicker
             {
                 crystals -= 5;
                 crystalsLabel.Content = crystals;
-                randResult = random.Next(1, 13);
+                randResult = random.Next(1, 19);
                 switch (randResult)
                 {
                     case 1:
-                        changeCrystalCharacter(Colors.LimeGreen, "Images/heroFaceImages/LeorioFace.jpg", "Леорио", 1);
+                        changeCrystalCharacter(Colors.LimeGreen, "Images/heroFaceImages/LeorioFace.jpg", "Леорио", 2);
                         break;
                     case 2:
-                        changeCrystalCharacter(Colors.LimeGreen, "Images/heroFaceImages/SakuraFace.jpg", "Сакура", 1);
+                        changeCrystalCharacter(Colors.LimeGreen, "Images/heroFaceImages/SakuraFace.jpg", "Сакура", 2);
                         break;
                     case 3:
-                        changeCrystalCharacter(Colors.LimeGreen, "Images/heroFaceImages/HaruhiFace.jpg", "Харухи", 1);
+                        changeCrystalCharacter(Colors.LimeGreen, "Images/heroFaceImages/HaruhiFace.jpg", "Харухи", 2);
                         break;
                     case 4:
-                        changeCrystalCharacter(Colors.LimeGreen, "Images/heroFaceImages/LucyFace.jpg", "Люсси", 1);
+                        changeCrystalCharacter(Colors.LimeGreen, "Images/heroFaceImages/LucyFace.jpg", "Люсси", 2);
                         break;
                     case 5:
-                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/KurapikaFace.png", "Курапика", 2);
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/KurapikaFace.png", "Курапика", 4);
                         break;
                     case 6:
-                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/NamiFace.jpg", "Нами", 2);
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/NamiFace.jpg", "Нами", 4);
                         break;
                     case 7:
-                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/UsoppFace.jpg", "Усопп", 2);
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/UsoppFace.jpg", "Усопп", 4);
                         break;
                     case 8:
-                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/OrihimeFace.jpg", "Орихиме", 2);
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/OrihimeFace.jpg", "Орихиме", 4);
                         break;
                     case 9:
-                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/LelouchFace.png", "Лелуш", 2);
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/LelouchFace.png", "Лелуш", 4);
                         break;
                     case 10:
-                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/ErzaFace.jpg", "Эльза", 2);
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/ErzaFace.jpg", "Эльза", 4);
                         break;
                     case 11:
-                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/LaxusFace.png", "Лаксус", 2);
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/LaxusFace.png", "Лаксус", 4);
                         break;
                     case 12:
-                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/GrayFace.png", "Грэй", 2);
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/GrayFace.png", "Грэй", 4);
+                        break;
+                    case 13:
+                        changeCrystalCharacter(Colors.LimeGreen, "Images/heroFaceImages/OnizukaFace.jpg", "Онидзука", 2);
+                        break;
+                    case 14:
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/RoshiFace.jpg", "Мастер Роши", 4);
+                        break;
+                    case 15:
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/PiccoloFace.jpg", "Пикколо", 4);
+                        break;
+                    case 16:
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/LancerFace.jpg", "Лансер", 4);
+                        break;
+                    case 17:
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/JosephFace.png", "Джозеф", 4);
+                        break;
+                    case 18:
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/KiritoFace.png", "Кирито", 4);
                         break;
                 }
             }
@@ -779,56 +873,104 @@ namespace Clicker
             {
                 crystals -= 15;
                 crystalsLabel.Content = crystals;
-                randResult = random.Next(1, 17);
+                randResult = random.Next(1, 33);
                 switch (randResult)
                 {
                     case 1:
-                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/KurapikaFace.png", "Курапика", 2);
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/KurapikaFace.png", "Курапика", 4);
                         break;
                     case 2:
-                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/NamiFace.jpg", "Нами", 2);
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/NamiFace.jpg", "Нами", 4);
                         break;
                     case 3:
-                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/UsoppFace.jpg", "Усопп", 2);
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/UsoppFace.jpg", "Усопп", 4);
                         break;
                     case 4:
-                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/OrihimeFace.jpg", "Орихиме", 2);
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/OrihimeFace.jpg", "Орихиме", 4);
                         break;
                     case 5:
-                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/LelouchFace.png", "Лелуш", 2);
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/LelouchFace.png", "Лелуш", 4);
                         break;
                     case 6:
-                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/ErzaFace.jpg", "Эльза", 2);
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/ErzaFace.jpg", "Эльза", 4);
                         break;
                     case 7:
-                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/LaxusFace.png", "Лаксус", 2);
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/LaxusFace.png", "Лаксус", 4);
                         break;
                     case 8:
-                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/GrayFace.png", "Грэй", 2);
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/GrayFace.png", "Грэй", 4);
                         break;
                     case 9:
-                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/KilluaFace.png", "Киллуа", 4);
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/KilluaFace.png", "Киллуа", 8);
                         break;
                     case 10:
-                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/GonFace.jpg", "Гон", 4);
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/GonFace.jpg", "Гон", 8);
                         break;
                     case 11:
-                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/KakashiFace.png", "Какаши", 4);
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/KakashiFace.png", "Какаши", 8);
                         break;
                     case 12:
-                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/SanjiFace.jpg", "Санджи", 4);
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/SanjiFace.jpg", "Санджи", 8);
                         break;
                     case 13:
-                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/ZoroFace.jpg", "Зоро", 4);
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/ZoroFace.jpg", "Зоро", 8);
                         break;
                     case 14:
-                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/KenpachiFace.jpg", "Кенпачи", 4);
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/KenpachiFace.jpg", "Кенпачи", 8);
                         break;
                     case 15:
-                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/ByakuyaFace.jpg", "Бьякуя", 4);
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/ByakuyaFace.jpg", "Бьякуя", 8);
                         break;
                     case 16:
-                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/HitsugayaFace.jpg", "Хицугая", 4);
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/HitsugayaFace.jpg", "Хицугая", 8);
+                        break;
+                    case 17:
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/RoshiFace.jpg", "Мастер Роши", 4);
+                        break;
+                    case 18:
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/PiccoloFace.jpg", "Пикколо", 4);
+                        break;
+                    case 19:
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/LancerFace.jpg", "Лансер", 4);
+                        break;
+                    case 20:
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/JosephFace.png", "Джозеф", 4);
+                        break;
+                    case 21:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/BerserkFace.jpg", "Берсерк", 8);
+                        break;
+                    case 22:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/GiornoFace.jpg", "Джорно", 8);
+                        break;
+                    case 23:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/GohanFace.png", "Гохан", 8);
+                        break;
+                    case 24:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/JonathanFace.jpg", "Джонатан", 8);
+                        break;
+                    case 25:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/JosukeFace.jpg", "Джоске", 8);
+                        break;
+                    case 26:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/GohanFace.jpg", "Гохан", 8);
+                        break;
+                    case 27:
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/KiritoFace.png", "Кирито", 4);
+                        break;
+                    case 28:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/LessRiderFace.png", "✭Бесправный Ездок", 8);
+                        break;
+                    case 29:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/OmaShuFace.jpg", "Сю", 8);
+                        break;
+                    case 30:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/RiderFace.jpg", "Райдер", 8);
+                        break;
+                    case 31:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/SakamotoFace.jpg", "✭Сакамото", 8);
+                        break;
+                    case 32:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/VegetaFace.jpg", "Веджета", 8);
                         break;
                 }
             }
@@ -844,57 +986,106 @@ namespace Clicker
             {
                 crystals -= 30;
                 crystalsLabel.Content = crystals;
-                randResult = random.Next(1, 17);
+                randResult = random.Next(1, 33);
                 switch (randResult)
                 {
                     case 1:
-                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/KilluaFace.png", "Киллуа", 4);
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/KilluaFace.png", "Киллуа", 8);
                         break;
                     case 2:
-                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/GonFace.jpg", "Гон", 4);
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/GonFace.jpg", "Гон", 8);
                         break;
                     case 3:
-                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/KakashiFace.png", "Какаши", 4);
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/KakashiFace.png", "Какаши", 8);
                         break;
                     case 4:
-                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/SanjiFace.jpg", "Санджи", 4);
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/SanjiFace.jpg", "Санджи", 8);
                         break;
                     case 5:
-                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/ZoroFace.jpg", "Зоро", 4);
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/ZoroFace.jpg", "Зоро", 8);
                         break;
                     case 6:
-                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/KenpachiFace.jpg", "Кенпачи", 4);
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/KenpachiFace.jpg", "Кенпачи", 8);
                         break;
                     case 7:
-                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/ByakuyaFace.jpg", "Бьякуя", 4);
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/ByakuyaFace.jpg", "Бьякуя", 8);
                         break;
                     case 8:
-                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/HitsugayaFace.jpg", "Хицугая", 4);
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/HitsugayaFace.jpg", "Хицугая", 8);
                         break;
                     case 9:
-                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/HisokaFace.png", "Хисока", 8);
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/HisokaFace.png", "Хисока", 16);
                         break;
                     case 10:
-                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/NarutoFace.jpg", "Наруто", 8);
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/NarutoFace.jpg", "Наруто", 16);
                         break;
                     case 11:
-                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/ObitoFace.jpg", "Обито", 8);
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/ObitoFace.jpg", "Обито", 16);
                         break;
                     case 12:
-                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/SasukeFace.jpg", "Саске", 8);
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/SasukeFace.jpg", "Саске", 16);
                         break;
                     case 13:
-                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/LuffyFace.png", "Луффи", 8);
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/LuffyFace.png", "Луффи", 16);
                         break;
                     case 14:
-                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/IchigoFace.jpg", "Ичиго", 8);
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/IchigoFace.jpg", "Ичиго", 16);
                         break;
                     case 15:
-                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/NatsuFace.jpg", "Натсу", 8);
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/NatsuFace.jpg", "Натсу", 16);
                         break;
                     case 16:
-                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/GutsFace.jpg", "Гатс", 8);
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/GutsFace.jpg", "Гатс", 16);
                         break;
+                    case 17:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/BerserkFace.jpg", "Берсерк", 8);
+                        break;
+                    case 18:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/GiornoFace.jpg", "Джорно", 8);
+                        break;
+                    case 19:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/GohanFace.png", "Гохан", 8);
+                        break;
+                    case 20:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/JonathanFace.jpg", "Джонатан", 8);
+                        break;
+                    case 21:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/JosukeFace.jpg", "Джоске", 8);
+                        break;
+                    case 22:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/GohanFace.jpg", "Гохан", 8);
+                        break;
+                    case 23:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/LessRiderFace.png", "✭Бесправный Ездок", 8);
+                        break;
+                    case 24:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/OmaShuFace.jpg", "Сю", 8);
+                        break;
+                    case 25:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/RiderFace.jpg", "Райдер", 8);
+                        break;
+                    case 26:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/SakamotoFace.jpg", "✭Сакамото", 8);
+                        break;
+                    case 27:
+                        changeCrystalCharacter(Colors.Purple, "Images/heroFaceImages/VegetaFace.jpg", "Веджета", 8);
+                        break;
+                    case 28:
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/GokuFace.png", "Гоку", 16);
+                        break;
+                    case 29:
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/JotaroFace.jpg", "Джотаро", 16);
+                        break;
+                    case 30:
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/PuckFace.jpg", "✭Пак", 16);
+                        break;
+                    case 31:
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/SaberFace.png", "Сэйбер", 16);
+                        break;
+                    case 32:
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/ShiroFace.jpg", "Широ", 16);
+                        break;
+
                 }
             }
             else
@@ -909,57 +1100,85 @@ namespace Clicker
             {
                 crystals -= 60;
                 crystalsLabel.Content = crystals;
-                randResult = random.Next(1, 17);
+                randResult = random.Next(1, 25);
                 switch (randResult)
                 {
                     case 1:
-                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/HisokaFace.png", "Хисока", 8);
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/HisokaFace.png", "Хисока", 16);
                         break;
                     case 2:
-                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/NarutoFace.jpg", "Наруто", 8);
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/NarutoFace.jpg", "Наруто", 16);
                         break;
                     case 3:
-                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/ObitoFace.jpg", "Обито", 8);
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/ObitoFace.jpg", "Обито", 16);
                         break;
                     case 4:
-                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/SasukeFace.jpg", "Саске", 8);
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/SasukeFace.jpg", "Саске", 16);
                         break;
                     case 5:
-                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/LuffyFace.png", "Луффи", 8);
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/LuffyFace.png", "Луффи", 16);
                         break;
                     case 6:
-                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/IchigoFace.jpg", "Ичиго", 8);
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/IchigoFace.jpg", "Ичиго", 16);
                         break;
                     case 7:
-                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/NatsuFace.jpg", "Натсу", 8);
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/NatsuFace.jpg", "Натсу", 16);
                         break;
                     case 8:
-                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/GutsFace.jpg", "Гатс", 8);
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/GutsFace.jpg", "Гатс", 16);
                         break;
                     case 9:
-                        changeCrystalCharacter(Colors.Black, "Images/bossImages/boss1.png", "֍Куроро Люцифер", 15);
+                        changeCrystalCharacter(Colors.Black, "Images/bossImages/KuroroFace.png", "֍Куроро", 30);
                         break;
                     case 10:
-                        changeCrystalCharacter(Colors.Black, "Images/bossImages/boss2.png", "֍Мадара Утиха", 15);
+                        changeCrystalCharacter(Colors.Black, "Images/bossImages/MadaraFace.png", "֍Мадара", 30);
                         break;
                     case 11:
-                        changeCrystalCharacter(Colors.Black, "Images/bossImages/boss3.png", "֍Зереф Драгнил", 15);
+                        changeCrystalCharacter(Colors.Black, "Images/bossImages/ZerefFace.png", "֍Зереф", 30);
                         break;
                     case 12:
-                        changeCrystalCharacter(Colors.Black, "Images/bossImages/boss4.png", "֍Донкихот Дофламинго", 15);
+                        changeCrystalCharacter(Colors.Black, "Images/bossImages/DoflamingoFace.png", "֍Дофламинго", 30);
                         break;
                     case 13:
-                        changeCrystalCharacter(Colors.Black, "Images/bossImages/boss5.png", "֍Яхве Бах", 15);
+                        changeCrystalCharacter(Colors.Black, "Images/bossImages/YhwachFace.png", "֍Яхве", 30);
                         break;
                     case 14:
                         Special1();
                         break;
                     case 15:
-                        changeCrystalCharacter(Colors.Red, "Images/specialHeroImages/kit.jpg", "Шэрая кошка", 0);
+                        changeCrystalCharacter(Colors.Red, "Images/specialHeroImages/kit.jpg", "Шэрая кошка", 50);
                         addAtk(30);
                         break;
+                    case 16:
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/GokuFace.png", "Гоку", 16);
+                        break;
+                    case 17:
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/JotaroFace.jpg", "Джотаро", 16);
+                        break;
+                    case 18:
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/PuckFace.jpg", "✭Пак", 16);
+                        break;
+                    case 19:
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/SaberFace.png", "Сэйбер", 16);
+                        break;
+                    case 20:
+                        changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/ShiroFace.jpg", "Широ", 16);
+                        break;
+                    case 21:
+                        changeCrystalCharacter(Colors.Black, "Images/bossImages/Dio.png", "֍Дио", 30);
+                        break;
+                    case 22:
+                        changeCrystalCharacter(Colors.Black, "Images/bossImages/Frieza.png", "֍Фриза", 30);
+                        break;
+                    case 23:
+                        changeCrystalCharacter(Colors.Black, "Images/bossImages/Gilgamesh.png", "֍Гильгамеш", 30);
+                        break;
+                    case 24:
+                        changeCrystalCharacter(Colors.Red, "Images/heroImages/Polzunok.png", "✭Ползунок", 50);
+                        break;
                 }
-            } else
+            }
+            else
             {
                 MessageBox.Show("У вас не хватает кристалов!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
@@ -1006,134 +1225,328 @@ namespace Clicker
         {
             if ((string)Inventory.SelectedItem == "Луффи")
             {
-                MessageBox.Show("Имя: Монки Д. Луффи: Ван пис.", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Монки Д. Луффи(Соломеная Шляпа)=Способность:Фрукт Gomu-Gomu(Резиновый Человек)=Аниме:Ван пис.", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            else if ((string)Inventory.SelectedItem == "Хисока") {
-                MessageBox.Show("Имя: Хисока Моро: Хантер х Хантер", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            else if ((string)Inventory.SelectedItem == "Хисока")
+            {
+                MessageBox.Show("Имя: Хисока Моро=Способность:БанджиГам (Липкая тянучка)=Аниме:Хантер х Хантер", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Гон")
             {
-                MessageBox.Show("Имя: Гон Фрикс: Хантер х Хантер", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Гон Фрикс=Способность:Камень Ножницы Бумага=Аниме:Хантер х Хантер", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Нами")
             {
-                MessageBox.Show("Имя: Нами: Ван пис", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Нами=Способность:Темпо=Аниме:Ван пис", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Зоро")
             {
-                MessageBox.Show("Имя: Ророноа Зоро: Ван пис", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Ророноа Зоро=Способность:Мечевые техники=Аниме:Ван пис", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Санджи")
             {
-                MessageBox.Show("Имя: Винсмок Санджи: Ван пис", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Винсмок Санджи=Способность:Дьявольская нога=Аниме:Ван пис", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Усопп")
             {
-                MessageBox.Show("Имя: Усопп: Ван пис", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Усоппа=Способность:Гинго Пачинко=Аниме:Ван пис", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Ичиго")
             {
-                MessageBox.Show("Имя: Куросаки Ичиго: Блич", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Куросаки Ичиго=Способность:Синигами,пустой,квинси=Аниме:Блич", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Натсу")
             {
-                MessageBox.Show("Имя: Драгнил Натсу: Хвост феи", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Драгнил Натсу=Способность:Огненый убийца драконов=Аниме:Фэйри тэйл", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Орихиме")
             {
-                MessageBox.Show("Имя: Иноуэ Орихиме: Блич", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Иноуэ Орихиме=Способность:Сантен Кисюн=Аниме:Блич", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Леорио")
             {
-                MessageBox.Show("Имя: Леорио Паладинайт: Хантер х Хантер", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Леорио Паладинайт=Способность:Телепорт-удар=Аниме:Хантер х Хантер", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Какаши")
             {
-                MessageBox.Show("Имя: Хатаки Какаши: Наруто", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Хатаки Какаши=Способность:Мангёке Шаринган=Аниме:Наруто", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Наруто")
             {
-                MessageBox.Show("Имя: Узумаки Наруто: Наруто", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Узумаки Наруто=Способность:Девятихвостый лис,сила рикудо=Аниме:Наруто", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Саске")
             {
-                MessageBox.Show("Имя: Учиха Саске: Наруто", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Учиха Саске=Способность:Вечный мангёке шаринган,рикудо ринненган=Аниме:Наруто", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Сакура")
             {
-                MessageBox.Show("Имя: Харуна Сакура: Наруто", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Харуна Сакура=Способность:Сильный удар,техники лечения=Аниме:Наруто", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Обито")
             {
-                MessageBox.Show("Имя: Учиха Обито: Наруто", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Учиха Обито=Способность:Мангёке шаринган,клетки хаширамы=Аниме:Наруто", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Хицугая")
             {
-                MessageBox.Show("Имя: Тоширо Хицугая: Блич", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Тоширо Хицугая=Способность:Дайгурэн Хьёрэнмару=Аниме:Блич", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Харухи")
             {
-                MessageBox.Show("Имя: Судзумия Харухи: Меланхолия Судзумия Харухи", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Харухи Судзумия=Способность:Хватит повторять одну и ту же серию=Аниме:Меланхолия Судзумия Харухи", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Курапика")
             {
-                MessageBox.Show("Имя: Курапика: Хантер х Хантер", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Курапика Курута=Способность:Святая цепь=Аниме:Хантер х Хантер", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Киллуа")
             {
-                MessageBox.Show("Имя: Золдзик Киллуа: Хантер х Хантер", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя:  Киллуа Золдзик=Способность:Thunderbolt=Аниме:Хантер х Хантер", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Гатс")
             {
-                MessageBox.Show("Имя: Гатс: Берсерк", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Гатс=Способность:Огромная нечеловеческая сила=Аниме:Берсерк", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Грэй")
             {
-                MessageBox.Show("Имя: Фулбастер Грэй: Хвост феи", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Фулбастер Грэй=Способность:Магия льда=Аниме:Фэйри Тэйл", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Эльза")
             {
-                MessageBox.Show("Имя: Скарлет Эльза: Хвост феи", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Скарлет Эльза=Способность:Магия смены снаряжения=Аниме:Фэйри Тэйл", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Лаксус")
             {
-                MessageBox.Show("Имя: Дрейар Лаксус: Хвост феи", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Дрейар Лаксус=Способность:Лакрима убийцы драконов=Аниме:Фэйри Тэйл", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Люси")
             {
-                MessageBox.Show("Имя: Хартфилия Люси: Хвост феи", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Хартфилия Люси=Способность:Заклинатель духов=Аниме:Фэйри ТэйлХвост феи", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Лелуш")
             {
-                MessageBox.Show("Имя: Лелуш Британский: Код Гиас", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Лелуш Британский=Способность:Гиас повиновения=Аниме:Код Гиас", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Бьякуя")
             {
-                MessageBox.Show("Имя: Кучики Бьякуя: Блич", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Кучики Бьякуя=Способность:Сенбунзакура Кагеёси=Аниме:Блич", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if ((string)Inventory.SelectedItem == "Кенпачи")
             {
-                MessageBox.Show("Имя: Зараки Кенпачи: Блич", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Зараки Кенпачи=Способность:Нозараши=Аниме:Блич", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            else if ((string)Inventory.SelectedItem == "Куроро Люцифер")
+            else if ((string)Inventory.SelectedItem == "Куроро")
             {
-                MessageBox.Show("Имя: Куроро Люцифер: Хантер х Хантер", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Куроро Люцифер=Способность:Скил Хантэр=Аниме:Хантер х Хантер", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            else if ((string)Inventory.SelectedItem == "Учиха Мадара")
+            else if ((string)Inventory.SelectedItem == "Мадара")
             {
-                MessageBox.Show("Имя: Учиха Мадара: Наруто", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Учиха Мадара=Способность:Сила рикудо,вечный мангёке шаринган,ринненган=Аниме:Наруто", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            else if ((string)Inventory.SelectedItem == "Зереф Драгнил")
+            else if ((string)Inventory.SelectedItem == "Зереф")
             {
-                MessageBox.Show("Имя: Зереф Драгнил: Хвост Феи", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Зереф Драгнил=Способность:Проклятье,бессмертие=Аниме:Фэйри Тэйл", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            else if ((string)Inventory.SelectedItem == "Донкихот Дофламинго")
+            else if ((string)Inventory.SelectedItem == "Дофламинго")
             {
-                MessageBox.Show("Имя: Докихот Дофламиго: Ван пис", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Докихот Дофламиго=Способность:Фрукт Ito-Ito(Нити)=Аниме:Ван пис", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            else if ((string)Inventory.SelectedItem == "Яхве")
+            else if ((string)Inventory.SelectedItem == "Берсерк")
             {
-                MessageBox.Show("Имя: Яхве Бах: Блич", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Имя: Геракл(Берсерк)=Фантазм:12 подвигов Геракла=Аниме:Судьба", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Дио")
+            {
+                MessageBox.Show("Имя: Дио Брандо=Стэнд:Za Waradu(Остановка времени)=Аниме:ДжоДжо", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Фриза")
+            {
+                MessageBox.Show("Имя: Фриза=Способность:Золотой Фриза=Аниме:Драгон Болл", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Гильгамеш")
+            {
+                MessageBox.Show("Имя: Гильгамеш(Арчер)=Фантазм:Врата Вавилона=Аниме:Судьба", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Джорно")
+            {
+                MessageBox.Show("Имя: Джорно Джовани=Стэнд:Gold Experience(Создание живого)=Аниме:ДжоДжо", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Гохан")
+            {
+                MessageBox.Show("Имя: Сон Гохан=Способность:Супер Саян 2=Аниме:Драгон Болл", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Гоку")
+            {
+                MessageBox.Show("Имя: Сон Гоку=Способность:Супер Саян голубой=Аниме:Драгон Болл", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Джонатан")
+            {
+                MessageBox.Show("Имя: Джонатан Джостар=Способность:Хамон=Аниме:ДжоДжо", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Джозеф")
+            {
+                MessageBox.Show("Имя: Джозеф Джостар=Способность:Хамон=Аниме:ДжоДжо", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Джоске")
+            {
+                MessageBox.Show("Имя: Хигашиката Джоске=Стэнд:Crazy Diamond(восстоновление)=Аниме:ДжоДжо", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Джотаро")
+            {
+                MessageBox.Show("Имя: Джотаро Куджо=Стэнд:Star Platinum(Очень сильный стэнд)=Аниме:ДжоДжо", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Кирито")
+            {
+                MessageBox.Show("Имя: Киригая Кирито=Способность:Два Меча=Аниме:САО", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Лансер")
+            {
+                MessageBox.Show("Имя:  Диармайд Уа Дуибхне(Лансер)=Фанитазм:всёдостигающие копьё=Аниме:Судьба", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "✭Бесправный Ездок")
+            {
+                MessageBox.Show("Имя: Бесправный Ездок=Способность:Низкий порог боли=Аниме:Ван-панч ман", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Сю")
+            {
+                MessageBox.Show("Имя: Ома Сю=Способность:Вынимать пустоты других людей=Аниме:Корона Вины", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Онидзука")
+            {
+                MessageBox.Show("Имя: Эйкити Онидзука=Способность:Крутой учитель=Аниме:Крутой Учитель Онидзука", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Пикколо")
+            {
+                MessageBox.Show("Имя: Пикколо Даймао=Способность:быстрая регенерация=Аниме:Драгон Болл", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Райдер")
+            {
+                MessageBox.Show("Имя: Александр Македонский(Райдер)=Фантазм:Тысячная армия=Аниме:Судьба", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Мастер Роши")
+            {
+                MessageBox.Show("Имя: Мутэн Роши=Способность:Камехамеха,бессмертие=Аниме:Драгон Болл", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Сэйбер")
+            {
+                MessageBox.Show("Имя: Артурия Пендрагон=Фантазм:Экскалибур=Аниме:Судьба", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "✭Сакамото")
+            {
+                MessageBox.Show("Имя: Сакаиото=Способность:идеален=Аниме:Я - Сакамото, а что?", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Широ")
+            {
+                MessageBox.Show("Имя: Эмия Широ=Способность:Trace-on(создание вещей)=Аниме:Судьба", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "Веджета")
+            {
+                MessageBox.Show("Имя: Веджета=Способность:Супер Саян Голубой=Аниме:Драгон Болл", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "✭Пак")
+            {
+                MessageBox.Show("Имя: Пак=Способность:Превращаеться в огромное чудовище=Аниме:С нуля", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if ((string)Inventory.SelectedItem == "✭Ползунок")
+            {
+                MessageBox.Show("Имя: Ползунок=Способность:вылезает когда вы подходите к яме на булыжнике=Аниме:СИ ЭС ГОУ(Басни Димона)", "Характеристики", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
+        }
+
+        private void weapon4Buy_Click(object sender, RoutedEventArgs e)
+        {
+            if (coins >= 270)
+            {
+                addAtk(8);
+                removeCoins(270);
+                Properties.Settings.Default.atk = atk;
+                Properties.Settings.Default.coins = coins;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                MessageBox.Show("У вас не хватает денег!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void weapon5Buy_Click(object sender, RoutedEventArgs e)
+        {
+            if (coins >= 520)
+            {
+                addAtk(16);
+                removeCoins(520);
+                Properties.Settings.Default.atk = atk;
+                Properties.Settings.Default.coins = coins;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                MessageBox.Show("У вас не хватает денег!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void weapon6Buy_Click(object sender, RoutedEventArgs e)
+        {
+            if (coins >= 580)
+            {
+                addAtk(20);
+                removeCoins(580);
+                Properties.Settings.Default.atk = atk;
+                Properties.Settings.Default.coins = coins;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                MessageBox.Show("У вас не хватает денег!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void weapon7Buy_Click(object sender, RoutedEventArgs e)
+        {
+            if (coins >= 800)
+            {
+                addAtk(30);
+                removeCoins(800);
+                Properties.Settings.Default.atk = atk;
+                Properties.Settings.Default.coins = coins;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                MessageBox.Show("У вас не хватает денег!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void weapon8Buy_Click(object sender, RoutedEventArgs e)
+        {
+            if (coins >= 875)
+            {
+                addAtk(35);
+                removeCoins(875);
+                Properties.Settings.Default.atk = atk;
+                Properties.Settings.Default.coins = coins;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                MessageBox.Show("У вас не хватает денег!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void weapon9Buy_Click(object sender, RoutedEventArgs e)
+        {
+            if (coins >= 350)
+            {
+                addAtk(15);
+                removeCoins(350);
+                Properties.Settings.Default.atk = atk;
+                Properties.Settings.Default.coins = coins;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                MessageBox.Show("У вас не хватает денег!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
     }

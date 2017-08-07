@@ -28,3 +28,19 @@ D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Anime Clicker.exe
 D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Anime Clicker.pdb
 D:\Anime Clicker\anime-clicker\Clicker\obj\Debug\Anime Clicker_Content.g.cs
 D:\Anime Clicker\anime-clicker\Clicker\bin\Debug\Ionic.Zip.Reduced.dll
+C:\Users\MoRset87\Documents\GitHub\anime-clicker\Clicker\bin\Debug\Anime Clicker.exe.config
+C:\Users\MoRset87\Documents\GitHub\anime-clicker\Clicker\bin\Debug\Anime Clicker.exe
+C:\Users\MoRset87\Documents\GitHub\anime-clicker\Clicker\bin\Debug\Anime Clicker.pdb
+C:\Users\MoRset87\Documents\GitHub\anime-clicker\Clicker\bin\Debug\Ionic.Zip.Reduced.dll
+C:\Users\MoRset87\Documents\GitHub\anime-clicker\Clicker\obj\Debug\Clicker.csprojResolveAssemblyReference.cache
+C:\Users\MoRset87\Documents\GitHub\anime-clicker\Clicker\obj\Debug\MainWindow.g.cs
+C:\Users\MoRset87\Documents\GitHub\anime-clicker\Clicker\obj\Debug\App.g.cs
+C:\Users\MoRset87\Documents\GitHub\anime-clicker\Clicker\obj\Debug\Anime Clicker_Content.g.cs
+C:\Users\MoRset87\Documents\GitHub\anime-clicker\Clicker\obj\Debug\Anime Clicker_MarkupCompile.cache
+C:\Users\MoRset87\Documents\GitHub\anime-clicker\Clicker\obj\Debug\Anime Clicker_MarkupCompile.lref
+C:\Users\MoRset87\Documents\GitHub\anime-clicker\Clicker\obj\Debug\MainWindow.baml
+C:\Users\MoRset87\Documents\GitHub\anime-clicker\Clicker\obj\Debug\Anime Clicker.g.resources
+C:\Users\MoRset87\Documents\GitHub\anime-clicker\Clicker\obj\Debug\Clicker.Properties.Resources.resources
+C:\Users\MoRset87\Documents\GitHub\anime-clicker\Clicker\obj\Debug\Clicker.csproj.GenerateResource.Cache
+C:\Users\MoRset87\Documents\GitHub\anime-clicker\Clicker\obj\Debug\Anime Clicker.exe
+C:\Users\MoRset87\Documents\GitHub\anime-clicker\Clicker\obj\Debug\Anime Clicker.pdb
