@@ -45,7 +45,10 @@ namespace Clicker
         public bool isBoss = Properties.Settings.Default.isBoss;
         public int dps = Properties.Settings.Default.dps;
         public int cps = Properties.Settings.Default.cps;
+        public int intervalMillisecs = 10;
+        public string charName;
 
+        System.Windows.Threading.DispatcherTimer spin = new System.Windows.Threading.DispatcherTimer();
         DispatcherTimer Timer = new DispatcherTimer();
         ImageBrush imgBrush = new ImageBrush();
         SoundPlayer attackSound1 = new SoundPlayer(Properties.Resources.attack1);
@@ -56,6 +59,7 @@ namespace Clicker
 
         public MainWindow()
         {
+            TimeSpan interval = new TimeSpan(0, 0, 0, 0, intervalMillisecs);
             InitializeComponent();
             coinsLabel.Content = coins;
             xpBar.Value = xp;
@@ -80,6 +84,14 @@ namespace Clicker
             System.Threading.Thread.Sleep(50);
             Inventory.ItemsSource = Properties.Settings.Default.charList;
             Inventory.Items.Refresh();
+            spin.Tick += new EventHandler(spin_Tick);
+            spin.Interval = interval;
+        }
+
+        public void addDps(int value)
+        {
+            dps += value;
+            dpsLabel.Content = dps;
         }
 
         public void HurtAnimation()
@@ -100,6 +112,109 @@ namespace Clicker
             Storyboard.SetTarget(growAnimation, enemyImage);
 
             storyboard.Begin();
+        }
+
+        public void spin_Tick(object sender, EventArgs e)
+        {
+            spinButton.IsEnabled = false;
+            intervalMillisecs += 10;
+            spin.Interval = new TimeSpan(0, 0, 0, 0, intervalMillisecs);
+            randomChar(slot1);
+            randomChar(slot2);
+            randomChar(slot3);
+            if (intervalMillisecs == 200)
+            {
+                intervalMillisecs = 0;
+                spin.Stop();
+                giveItem();
+                spinButton.IsEnabled = true;
+            }
+        }
+
+        public void giveItem()
+        {
+            if (slot1.Source != null && slot2.Source != null && slot3.Source != null && slot1.Source.ToString() == slot2.Source.ToString() && slot2.Source.ToString() == slot3.Source.ToString())
+            {
+                if (charName == "Грей")
+                {
+                    AddToInventory("Грей");
+                    addDps(10);
+                    MessageBox.Show("a");
+                } else if (charName == "Гоку")
+                {
+                    AddToInventory("Гоку");
+                    MessageBox.Show("b");
+                    addDps(10);
+                } else if (charName == "Гохан")
+                {
+                    AddToInventory("Гохан");
+                    MessageBox.Show("c");
+                    addDps(10);
+                } else if (charName == "Ичиго")
+                {
+                    AddToInventory("Ичиго");
+                    MessageBox.Show("d");
+                    addDps(10);
+                }
+            } else
+            {
+                addCrystals(1);
+            }
+        }
+
+        public void AddToInventory(string Name)
+        {
+            Properties.Settings.Default.charList.Add(Name);
+            Inventory.Items.Refresh();
+        }
+
+        public void randomChar(Image slot)
+        {
+            randResult = random.Next(1, 100);
+            //switch (randResult)
+            //{
+            //    case 1:
+            //        slot.Source = new BitmapImage(new Uri("Images/heroFaceImages/GokuFace.png", UriKind.Relative));
+            //        break;
+            //    case 2:
+            //        slot.Source = new BitmapImage(new Uri("Images/heroFaceImages/GrayFace.png", UriKind.Relative));
+            //        break;
+            //    case 3:
+            //        slot.Source = new BitmapImage(new Uri("Images/heroFaceImages/GohanFace.png", UriKind.Relative));
+            //        break;
+            //}
+            if(randResult > 0 && randResult < 10)
+            {
+                slot.Source = new BitmapImage(new Uri("Images/heroFaceImages/GokuFace.png", UriKind.Relative));
+                charName = "Гоку";
+            }
+            else if (randResult > 10 && randResult < 50)
+            {
+                slot.Source = new BitmapImage(new Uri("Images/heroFaceImages/GrayFace.png", UriKind.Relative));
+                charName = "Грей";
+            }
+            else if (randResult > 50 && randResult < 95)
+            {
+                slot.Source = new BitmapImage(new Uri("Images/heroFaceImages/GohanFace.png", UriKind.Relative));
+                charName = "Гохан";
+            }
+            else if (randResult > 95 && randResult < 101)
+            {
+                slot.Source = new BitmapImage(new Uri("Images/heroFaceImages/IchigoFace.png", UriKind.Relative));
+                charName = "Ичиго";
+            }
+        }
+
+        public bool chance(int chance)
+        {
+            int result = random.Next(chance);
+            if (result == 1)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
         }
 
         private void Attack_Click(object sender, RoutedEventArgs e)
@@ -127,6 +242,7 @@ namespace Clicker
                 {
                     addCrystals(random.Next(1,5));
                     isBoss = false;
+                    changeBackgroundPic();
                 }
                 xp = xp + (enemyHp / 3);
                 xpBar.Value = xp;
@@ -158,6 +274,32 @@ namespace Clicker
                 }
             }
             Properties.Settings.Default.atk = atk;
+        }
+
+        private void changeBackgroundPic()
+        {
+            randResult = random.Next(1,7);
+            switch(randResult)
+            {
+                case 1:
+                    background.Source = new BitmapImage(new Uri("Images/backgroundImages/background1.jpg", UriKind.Relative));
+                    break;
+                case 2:
+                    background.Source = new BitmapImage(new Uri("Images/backgroundImages/background2.jpg", UriKind.Relative));
+                    break;
+                case 3:
+                    background.Source = new BitmapImage(new Uri("Images/backgroundImages/bg3.jpg", UriKind.Relative));
+                    break;
+                case 4:
+                    background.Source = new BitmapImage(new Uri("Images/backgroundImages/bg4.jpg", UriKind.Relative));
+                    break;
+                case 5:
+                    background.Source = new BitmapImage(new Uri("Images/backgroundImages/bg5.jpg", UriKind.Relative));
+                    break;
+                case 6:
+                    background.Source = new BitmapImage(new Uri("Images/backgroundImages/bg6.jpg", UriKind.Relative));
+                    break;
+            }
         }
 
         public void changelevel()
@@ -243,15 +385,6 @@ namespace Clicker
             changePic();
         }
 
-        public void changeCharacter(Color color, string pathToImage, string characterName, int addDps)
-        {
-            charColor.Fill = new SolidColorBrush(color);
-            charImage.Source = new BitmapImage(new Uri(pathToImage, UriKind.Relative));
-            charName.Content = characterName;
-            Properties.Settings.Default.charList.Add(characterName);
-            dps += addDps;
-        }
-
         public void changeCrystalCharacter(Color color, string pathToImage, string characterName, int addDps)
         {
             crystalSpinner.Visibility = Visibility.Visible;
@@ -278,309 +411,13 @@ namespace Clicker
             Inventory.Items.Refresh();
         }
 
-        public void addChar(string query)
-        {
-            bool isExist = false;
-            for (int i = 0; i < Inventory.Items.Count; i++)
-            {
-                var s = Inventory.Items[i].ToString();
-                if (s.StartsWith(query))
-                {
-                    if (s == query)
-                    {
-                        Inventory.Items[i] = query + "x2";
-                        isExist = true;
-                        break;
-                    }
-                    else
-                    {
-                        // Escape your plain text before use with regex
-                        var pattern = Regex.Escape(query);
-                        // Check if s has this formnat: queryx2, queryx3, queryx4, ...
-                        Match m = Regex.Match(s, "^" + pattern + @"x(\d+)$");
-                        if (m.Success)
-                        {
-                            Inventory.Items[i] = query + "x" + (Int32.Parse(m.Groups[1].Value) + 1);
-                            isExist = true;
-                            break;
-                        }
-                    }
-                }
-            }
-            if (!isExist) Inventory.Items.Add(query);
-        }
-
         private void spin_Click(object sender, RoutedEventArgs e)
         {
             if (coins > spinCost)
             {
                 coins -= spinCost;
                 coinsLabel.Content = Convert.ToString(coins);
-                randResult = random.Next(1, 50);
-                switch (randResult)
-                {
-                    case 1:
-                        charColor.Fill = new SolidColorBrush(Colors.LimeGreen);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero1.png", UriKind.Relative));
-                        charName.Content = "Леорио";
-                        Properties.Settings.Default.charList.Add("Леорио");
-                        dps += 1;
-                        break;
-                    case 2:
-                        charColor.Fill = new SolidColorBrush(Colors.Orange);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero2.png", UriKind.Relative));
-                        charName.Content = "Хисока";
-                        Properties.Settings.Default.charList.Add("Хисока");
-                        dps += 8;
-                        break;
-                    case 3:
-                        charColor.Fill = new SolidColorBrush(Colors.Purple);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero3.png", UriKind.Relative));
-                        charName.Content = "Киллуа";
-                        Properties.Settings.Default.charList.Add("Киллуа");
-                        dps += 4;
-                        break;
-                    case 4:
-                        charColor.Fill = new SolidColorBrush(Colors.Purple);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero4.png", UriKind.Relative));
-                        charName.Content = "Гон";
-                        Properties.Settings.Default.charList.Add("Гон");
-                        dps += 4;
-                        break;
-                    case 5:
-                        charColor.Fill = new SolidColorBrush(Colors.Blue);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero5.png", UriKind.Relative));
-                        charName.Content = "Курапика";
-                        Properties.Settings.Default.charList.Add("Курапика");
-                        dps += 2;
-                        break;
-                    case 6:
-                        charColor.Fill = new SolidColorBrush(Colors.Purple);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero6.png", UriKind.Relative));
-                        charName.Content = "Какаши";
-                        Properties.Settings.Default.charList.Add("Какаши");
-                        dps += 4;
-                        break;
-                    case 7:
-                        charColor.Fill = new SolidColorBrush(Colors.Orange);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero7.png", UriKind.Relative));
-                        charName.Content = "Наруто";
-                        Properties.Settings.Default.charList.Add("Наруто");
-                        dps += 8;
-                        break;
-                    case 8:
-                        charColor.Fill = new SolidColorBrush(Colors.Orange);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero8.png", UriKind.Relative));
-                        charName.Content = "Обито";
-                        Properties.Settings.Default.charList.Add("Обито");
-                        dps += 8;
-                        break;
-                    case 9:
-                        charColor.Fill = new SolidColorBrush(Colors.LimeGreen);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero9.png", UriKind.Relative));
-                        charName.Content = "Сакура";
-                        Properties.Settings.Default.charList.Add("Сакура");
-                        dps += 1;
-                        break;
-                    case 10:
-                        charColor.Fill = new SolidColorBrush(Colors.Orange);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero10.png", UriKind.Relative));
-                        charName.Content = "Саске";
-                        Properties.Settings.Default.charList.Add("Саске");
-                        dps += 8;
-                        break;
-                    case 11:
-                        charColor.Fill = new SolidColorBrush(Colors.Purple);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero11.png", UriKind.Relative));
-                        charName.Content = "Санджи";
-                        Properties.Settings.Default.charList.Add("Санджи");
-                        dps += 4;
-                        break;
-                    case 12:
-                        charColor.Fill = new SolidColorBrush(Colors.Purple);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero12.png", UriKind.Relative));
-                        charName.Content = "Зоро";
-                        Properties.Settings.Default.charList.Add("Зоро");
-                        dps += 4;
-                        break;
-                    case 13:
-                        charColor.Fill = new SolidColorBrush(Colors.Blue);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero13.png", UriKind.Relative));
-                        charName.Content = "Нами";
-                        Properties.Settings.Default.charList.Add("Нами");
-                        dps += 8;
-                        break;
-                    case 14:
-                        charColor.Fill = new SolidColorBrush(Colors.Blue);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero14.png", UriKind.Relative));
-                        charName.Content = "Усопп";
-                        Properties.Settings.Default.charList.Add("Усопп");
-                        dps += 2;
-                        break;
-                    case 15:
-                        charColor.Fill = new SolidColorBrush(Colors.Orange);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero15.png", UriKind.Relative));
-                        charName.Content = "Луффи";
-                        Properties.Settings.Default.charList.Add("Луффи");
-                        dps += 8;
-                        break;
-                    case 16:
-                        charColor.Fill = new SolidColorBrush(Colors.Orange);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero16.png", UriKind.Relative));
-                        charName.Content = "Ичиго";
-                        Properties.Settings.Default.charList.Add("Ичиго");
-                        dps += 8;
-                        break;
-                    case 17:
-                        charColor.Fill = new SolidColorBrush(Colors.Purple);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero17.png", UriKind.Relative));
-                        charName.Content = "Кенпачи";
-                        Properties.Settings.Default.charList.Add("Кенпачи");
-                        dps += 4;
-                        break;
-                    case 18:
-                        charColor.Fill = new SolidColorBrush(Colors.Purple);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero18.png", UriKind.Relative));
-                        charName.Content = "Бьякуя";
-                        Properties.Settings.Default.charList.Add("Бьякуя");
-                        dps += 4;
-                        break;
-                    case 19:
-                        charColor.Fill = new SolidColorBrush(Colors.Purple);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero19.png", UriKind.Relative));
-                        charName.Content = "Хицугая";
-                        Properties.Settings.Default.charList.Add("Хицугая");
-                        dps += 4;
-                        break;
-                    case 20:
-                        charColor.Fill = new SolidColorBrush(Colors.Blue);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero20.png", UriKind.Relative));
-                        charName.Content = "Орихиме";
-                        Properties.Settings.Default.charList.Add("Орихиме");
-                        dps += 2;
-                        break;
-                    case 21:
-                        charColor.Fill = new SolidColorBrush(Colors.Blue);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero21.png", UriKind.Relative));
-                        charName.Content = "Лелуш";
-                        Properties.Settings.Default.charList.Add("Лелуш");
-                        dps += 2;
-                        break;
-                    case 22:
-                        charColor.Fill = new SolidColorBrush(Colors.LimeGreen);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero22.png", UriKind.Relative));
-                        charName.Content = "Харухи";
-                        Properties.Settings.Default.charList.Add("Харухи");
-                        dps += 1;
-                        break;
-                    case 23:
-                        charColor.Fill = new SolidColorBrush(Colors.Orange);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero23.png", UriKind.Relative));
-                        charName.Content = "Натсу";
-                        Properties.Settings.Default.charList.Add("Натсу");
-                        dps += 8;
-                        break;
-                    case 24:
-                        charColor.Fill = new SolidColorBrush(Colors.LimeGreen);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero24.png", UriKind.Relative));
-                        charName.Content = "Люси";
-                        Properties.Settings.Default.charList.Add("Люси");
-                        dps += 1;
-                        break;
-                    case 25:
-                        charColor.Fill = new SolidColorBrush(Colors.Blue);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero25.png", UriKind.Relative));
-                        charName.Content = "Элиза";
-                        Properties.Settings.Default.charList.Add("Элиза");
-                        dps += 2;
-                        break;
-                    case 26:
-                        charColor.Fill = new SolidColorBrush(Colors.Blue);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero26.png", UriKind.Relative));
-                        charName.Content = "Лаксус";
-                        Properties.Settings.Default.charList.Add("Лаксус");
-                        dps += 2;
-                        break;
-                    case 27:
-                        charColor.Fill = new SolidColorBrush(Colors.Blue);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero27.png", UriKind.Relative));
-                        charName.Content = "Грэй";
-                        Properties.Settings.Default.charList.Add("Грэй");
-                        dps += 2;
-                        break;
-                    case 28:
-                        charColor.Fill = new SolidColorBrush(Colors.Orange);
-                        charImage.Source = new BitmapImage(new Uri("Images/heroImages/hero28.png", UriKind.Relative));
-                        charName.Content = "Гатс";
-                        Properties.Settings.Default.charList.Add("Гатс");
-                        dps += 8;
-                        break;
-                    case 29:
-                        changeCharacter(Colors.Orange, "Images/heroImages/Saber.png", "Сэйбер", 8);
-                        break;
-                    case 30:
-                        changeCharacter(Colors.Purple, "Images/heroImages/Berserk.png", "Берсерк", 4);
-                        break;
-                    case 31:
-                        changeCharacter(Colors.Purple, "Images/heroImages/Rider.png", "Райдер", 4);
-                        break;
-                    case 32:
-                        changeCharacter(Colors.Blue, "Images/heroImages/Lancer.png", "Лансер", 2);
-                        break;
-                    case 33:
-                        changeCharacter(Colors.Orange, "Images/heroImages/Shiro.png", "Широ", 8);
-                        break;
-                    case 34:
-                        changeCharacter(Colors.Purple, "Images/heroImages/Giorno.png", "Джорно", 4);
-                        break;
-                    case 35:
-                        changeCharacter(Colors.Purple, "Images/heroImages/Jonathan.png", "Джонатан", 4);
-                        break;
-                    case 36:
-                        changeCharacter(Colors.Purple, "Images/heroImages/Josuke.png", "Джоске", 4);
-                        break;
-                    case 37:
-                        changeCharacter(Colors.Blue, "Images/heroImages/Joseph.png", "Джозеф", 2);
-                        break;
-                    case 38:
-                        changeCharacter(Colors.Orange, "Images/heroImages/Jotaro.png", "Джотаро", 8);
-                        break;
-                    case 39:
-                        changeCharacter(Colors.Purple, "Images/heroImages/Gohan.png", "Гохан", 4);
-                        break;
-                    case 40:
-                        changeCharacter(Colors.Orange, "Images/heroImages/Goku.png", "Гоку", 8);
-                        break;
-                    case 41:
-                        changeCharacter(Colors.Blue, "Images/heroImages/Roshi.png", "Мастер Роши", 2);
-                        break;
-                    case 42:
-                        changeCharacter(Colors.Blue, "Images/heroImages/Piccolo.png", "Пикколо", 2);
-                        break;
-                    case 43:
-                        changeCharacter(Colors.Purple, "Images/heroImages/Vegeta.png", "Веджета", 4);
-                        break;
-                    case 44:
-                        changeCharacter(Colors.Blue, "Images/heroImages/Kirito.png", "Кирито", 2);
-                        break;
-                    case 45:
-                        changeCharacter(Colors.LimeGreen, "Images/heroImages/Onizuka.png", "Онидзука", 1);
-                        break;
-                    case 46:
-                        changeCharacter(Colors.Purple, "Images/heroImages/OmaShu.png", "Сю", 4);
-                        break;
-                    case 47:
-                        changeCharacter(Colors.Orange, "Images/heroImages/Puck.png", "✮Пак", 16);
-                        break;
-                    case 48:
-                        changeCharacter(Colors.Purple, "Images/heroImages/Sakamoto.png", "✮Сакамото", 8);
-                        break;
-                    case 49:
-                        changeCharacter(Colors.Purple, "Images/heroImages/LessRider.png", "✮Бесправный Ездок", 8);
-                        break;
-                    default:
-                        break;
-                }
+                spin.Start();
                 spinCost += 50;
                 dpsLabel.Content = dps;
                 spinCostLabel.Content = Convert.ToString(spinCost);
@@ -598,7 +435,7 @@ namespace Clicker
 
         public void addCrystals(int value)
         {
-            crystals++;
+            crystals += value;
             crystalsLabel.Content = Convert.ToString(crystals);
         }
 
@@ -833,7 +670,7 @@ namespace Clicker
                         changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/LelouchFace.png", "Лелуш", 4);
                         break;
                     case 10:
-                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/ErzaFace.jpg", "Эльза", 4);
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/ErzaFace.png", "Эльза", 4);
                         break;
                     case 11:
                         changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/LaxusFace.png", "Лаксус", 4);
@@ -892,7 +729,7 @@ namespace Clicker
                         changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/LelouchFace.png", "Лелуш", 4);
                         break;
                     case 6:
-                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/ErzaFace.jpg", "Эльза", 4);
+                        changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/ErzaFace.png", "Эльза", 4);
                         break;
                     case 7:
                         changeCrystalCharacter(Colors.Blue, "Images/heroFaceImages/LaxusFace.png", "Лаксус", 4);
@@ -1128,19 +965,19 @@ namespace Clicker
                         changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/GutsFace.jpg", "Гатс", 16);
                         break;
                     case 9:
-                        changeCrystalCharacter(Colors.Black, "Images/bossImages/KuroroFace.png", "֍Куроро", 30);
+                        changeCrystalCharacter(Colors.Black, "Images/heroFaceImages/KuroroFace.jpg", "֍Куроро", 30);
                         break;
                     case 10:
-                        changeCrystalCharacter(Colors.Black, "Images/bossImages/MadaraFace.png", "֍Мадара", 30);
+                        changeCrystalCharacter(Colors.Black, "Images/heroFaceImages/MadaraFace.jpg", "֍Мадара", 30);
                         break;
                     case 11:
-                        changeCrystalCharacter(Colors.Black, "Images/bossImages/ZerefFace.png", "֍Зереф", 30);
+                        changeCrystalCharacter(Colors.Black, "Images/heroFaceImages/ZerefFace.png", "֍Зереф", 30);
                         break;
                     case 12:
-                        changeCrystalCharacter(Colors.Black, "Images/bossImages/DoflamingoFace.png", "֍Дофламинго", 30);
+                        changeCrystalCharacter(Colors.Black, "Images/heroFaceImages/DoflamingoFace.png", "֍Дофламинго", 30);
                         break;
                     case 13:
-                        changeCrystalCharacter(Colors.Black, "Images/bossImages/YhwachFace.png", "֍Яхве", 30);
+                        changeCrystalCharacter(Colors.Black, "Images/heroFaceImages/YhwachFace.png", "֍Яхве", 30);
                         break;
                     case 14:
                         Special1();
@@ -1165,13 +1002,13 @@ namespace Clicker
                         changeCrystalCharacter(Colors.Orange, "Images/heroFaceImages/ShiroFace.jpg", "Широ", 16);
                         break;
                     case 21:
-                        changeCrystalCharacter(Colors.Black, "Images/bossImages/Dio.png", "֍Дио", 30);
+                        changeCrystalCharacter(Colors.Black, "Images/heroFaceImages/DioFace.png", "֍Дио", 30);
                         break;
                     case 22:
-                        changeCrystalCharacter(Colors.Black, "Images/bossImages/Frieza.png", "֍Фриза", 30);
+                        changeCrystalCharacter(Colors.Black, "Images/heroFaceImages/FriezaFace.jpg", "֍Фриза", 30);
                         break;
                     case 23:
-                        changeCrystalCharacter(Colors.Black, "Images/bossImages/Gilgamesh.png", "֍Гильгамеш", 30);
+                        changeCrystalCharacter(Colors.Black, "Images/heroFaceImages/GilgameshFace.jpg", "֍Гильгамеш", 30);
                         break;
                     case 24:
                         changeCrystalCharacter(Colors.Red, "Images/heroImages/Polzunok.png", "✭Ползунок", 50);
@@ -1548,6 +1385,21 @@ namespace Clicker
             {
                 MessageBox.Show("У вас не хватает денег!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            addCoins(2000);
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            addCrystals(2000);
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            addCoins(20000);
         }
     }
 }

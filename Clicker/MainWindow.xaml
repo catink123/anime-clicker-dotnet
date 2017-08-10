@@ -7,10 +7,11 @@
         mc:Ignorable="d"
         Title="Anime Clicker" Height="480" Width="860" ResizeMode="NoResize" Background="Black">
     <Grid>
-        <Grid x:Name="background" Margin="0,0,346,0">
+        <Grid Margin="0,0,346,0">
             <Grid.Background>
                 <ImageBrush ImageSource="Images/backgroundImages/background1.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
+            <Image x:Name="background" HorizontalAlignment="Left" Height="451" VerticalAlignment="Top" Width="508" Source="Images/backgroundImages/background1.jpg" Stretch="UniformToFill"/>
             <ProgressBar x:Name="enemyHpBar" HorizontalAlignment="Center" Height="22" VerticalAlignment="Center" Width="285" Value="10" Foreground="Red" Maximum="10" Background="#FF780000" Margin="0,308,0,0"/>
             <Label x:Name="enemyName" Content="Орк" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White" FontFamily="Segoe Script" FontSize="24" Background="#59000000" Width="287" Height="42" HorizontalContentAlignment="Center" FontWeight="Bold" Margin="112,0,109,-2"/>
             <Image x:Name="enemyImage" Height="351" Margin="0,-71,0,0" Source="Images/enemyImages/enemy1.png" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center" >
@@ -98,24 +99,14 @@
             <TabItem Header="Рулетка персонажей">
                 <Grid Background="#FFE5E5E5">
                     <Image HorizontalAlignment="Left" Height="403" VerticalAlignment="Top" Width="340" Stretch="Fill" Source="Images/miscImages/shop.png"/>
-                    <Rectangle Height="200" Margin="0,54,0,0" Stroke="Black" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200">
-                        <Rectangle.Fill>
-                            <RadialGradientBrush>
-                                <GradientStop Color="#FF6A6A6A" Offset="1"/>
-                                <GradientStop Color="#FFB8B8B8"/>
-                            </RadialGradientBrush>
-                        </Rectangle.Fill>
-                    </Rectangle>
-                    <Rectangle x:Name="charColor" Fill="#FF919191" Height="55" Margin="0,199,0,0" Stroke="Black" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200"/>
-                    <Label x:Name="charName" Content="Нажмите на кнопку" HorizontalAlignment="Center" Margin="0,199,0,0" VerticalAlignment="Top" Height="55" Width="200" FontSize="18" FontFamily="MV Boli" Foreground="White"/>
-                    <Grid HorizontalAlignment="Center" Height="145" Margin="0,54,0,0" VerticalAlignment="Top" Width="200">
-                        <Image x:Name="charImage" Source="Images/miscImages/spinner.gif"/>
-                    </Grid>
-                    <Button x:Name="spin" Content="Крутить" HorizontalAlignment="Left" Margin="70,271,0,0" VerticalAlignment="Top" Width="200" Height="30" FontSize="20" Click="spin_Click"/>
+                    <Button x:Name="spinButton" Content="Крутить" HorizontalAlignment="Left" Margin="70,271,0,0" VerticalAlignment="Top" Width="200" Height="30" FontSize="20" Click="spin_Click"/>
                     <Label Content="Цена:" HorizontalAlignment="Left" Margin="70,0,0,76" VerticalAlignment="Bottom" Width="45" HorizontalContentAlignment="Right"/>
                     <Label x:Name="spinCostLabel" Content="100" HorizontalAlignment="Left" Margin="115,0,0,76" VerticalAlignment="Bottom" Width="155"/>
                     <Label Content="(coins)" HorizontalAlignment="Left" Margin="70,0,0,49" VerticalAlignment="Bottom" Width="45" HorizontalContentAlignment="Center" Height="27" FontSize="9"/>
                     <Button x:Name="InventoryToggle" Content="Инвентарь" HorizontalAlignment="Left" Margin="238,343,0,0" VerticalAlignment="Top" Width="80" Height="27" Click="InventoryToggle_Click"/>
+                    <Image x:Name="slot1" HorizontalAlignment="Left" Height="90" Margin="29,127,0,0" VerticalAlignment="Top" Width="90" Source="Images/heroFaceImages/GokuFace.png" Stretch="UniformToFill"/>
+                    <Image x:Name="slot2" HorizontalAlignment="Left" Height="90" Margin="124,127,0,0" VerticalAlignment="Top" Width="90" Source="Images/heroFaceImages/GokuFace.png" Stretch="UniformToFill"/>
+                    <Image x:Name="slot3" HorizontalAlignment="Left" Height="90" Margin="219,127,0,0" VerticalAlignment="Top" Width="90" Source="Images/heroFaceImages/GokuFace.png" Stretch="UniformToFill"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Магазин оружия">

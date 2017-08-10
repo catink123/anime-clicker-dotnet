@@ -136,8 +136,8 @@
     <Resource Include="Images\heroFaceImages\ZerefFace.png" />
     <Resource Include="Images\miscImages\xernya_kakaya_nibudz%27.png" />
     <Resource Include="Images\heroFaceImages\ObitoFace.jpg" />
-    <Resource Include="Images\specialHeroImages\kit.jpg" />
     <Resource Include="Images\specialHeroImages\koshena.jpg" />
+    <Resource Include="Images\specialHeroImages\kit.jpg" />
     <Resource Include="Images\heroImages\Berserk.png" />
     <Resource Include="Images\heroImages\Shiro.png" />
     <Resource Include="Images\heroImages\Giorno.png" />
@@ -194,6 +194,10 @@
     <Resource Include="Images\weaponImages\DragonSlayer.png" />
     <Resource Include="Images\weaponImages\Jacal.png" />
     <Resource Include="Images\heroImages\Polzunok.png" />
+    <Resource Include="Images\backgroundImages\bg3.jpg" />
+    <Resource Include="Images\backgroundImages\bg4.jpg" />
+    <Resource Include="Images\backgroundImages\bg5.jpg" />
+    <Resource Include="Images\backgroundImages\bg6.jpg" />
     <Content Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

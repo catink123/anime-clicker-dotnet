@@ -30,3 +30,19 @@ C:\Users\MoRset87\Documents\GitHub\anime-clicker\Clicker\obj\Release\Clicker.Pro
 C:\Users\MoRset87\Documents\GitHub\anime-clicker\Clicker\obj\Release\Clicker.csproj.GenerateResource.Cache
 C:\Users\MoRset87\Documents\GitHub\anime-clicker\Clicker\obj\Release\Anime Clicker.exe
 C:\Users\MoRset87\Documents\GitHub\anime-clicker\Clicker\obj\Release\Anime Clicker.pdb
+D:\Проекты\Anime Clicker\anime-clicker\Clicker\bin\Release\Anime Clicker.exe.config
+D:\Проекты\Anime Clicker\anime-clicker\Clicker\bin\Release\Anime Clicker.exe
+D:\Проекты\Anime Clicker\anime-clicker\Clicker\bin\Release\Anime Clicker.pdb
+D:\Проекты\Anime Clicker\anime-clicker\Clicker\bin\Release\Ionic.Zip.Reduced.dll
+D:\Проекты\Anime Clicker\anime-clicker\Clicker\obj\Release\Clicker.csprojResolveAssemblyReference.cache
+D:\Проекты\Anime Clicker\anime-clicker\Clicker\obj\Release\MainWindow.g.cs
+D:\Проекты\Anime Clicker\anime-clicker\Clicker\obj\Release\App.g.cs
+D:\Проекты\Anime Clicker\anime-clicker\Clicker\obj\Release\Anime Clicker_Content.g.cs
+D:\Проекты\Anime Clicker\anime-clicker\Clicker\obj\Release\Anime Clicker_MarkupCompile.cache
+D:\Проекты\Anime Clicker\anime-clicker\Clicker\obj\Release\Anime Clicker_MarkupCompile.lref
+D:\Проекты\Anime Clicker\anime-clicker\Clicker\obj\Release\MainWindow.baml
+D:\Проекты\Anime Clicker\anime-clicker\Clicker\obj\Release\Anime Clicker.g.resources
+D:\Проекты\Anime Clicker\anime-clicker\Clicker\obj\Release\Clicker.Properties.Resources.resources
+D:\Проекты\Anime Clicker\anime-clicker\Clicker\obj\Release\Clicker.csproj.GenerateResource.Cache
+D:\Проекты\Anime Clicker\anime-clicker\Clicker\obj\Release\Anime Clicker.exe
+D:\Проекты\Anime Clicker\anime-clicker\Clicker\obj\Release\Anime Clicker.pdb
