@@ -117,11 +117,9 @@ namespace Clicker
         public void spin_Tick(object sender, EventArgs e)
         {
             spinButton.IsEnabled = false;
-            intervalMillisecs += 10;
+            intervalMillisecs += 5;
             spin.Interval = new TimeSpan(0, 0, 0, 0, intervalMillisecs);
-            randomChar(slot1);
-            randomChar(slot2);
-            randomChar(slot3);
+            randomChar();
             if (intervalMillisecs == 200)
             {
                 intervalMillisecs = 0;
@@ -131,34 +129,39 @@ namespace Clicker
             }
         }
 
+        public void changeChar(string Name, Color Color, string ImageName)
+        {
+            charName = Name;
+            charNameLabel.Content = charName;
+            charColor.Fill = new SolidColorBrush(Color);
+            charImage.Source = new BitmapImage(new Uri("Images/heroFaceImages/" + ImageName, UriKind.Relative));
+        }
+
+        public void OnGetChar(int NumOfDps, string ImageName)
+        {
+            CharInfo charInfo = new CharInfo();
+            AddToInventory(charName);
+            addDps(NumOfDps);
+            charInfo.Show();
+            charInfo.charNameLabel.Content = charNameLabel.Content;
+            charInfo.charColor.Fill = charColor.Fill;
+            charInfo.charImage.Source = new BitmapImage(new Uri("Images/heroImages/" + ImageName, UriKind.Relative)); ;
+        }
+
         public void giveItem()
         {
-            if (slot1.Source != null && slot2.Source != null && slot3.Source != null && slot1.Source.ToString() == slot2.Source.ToString() && slot2.Source.ToString() == slot3.Source.ToString())
+            if (charName == "Грей")
             {
-                if (charName == "Грей")
-                {
-                    AddToInventory("Грей");
-                    addDps(10);
-                    MessageBox.Show("a");
-                } else if (charName == "Гоку")
-                {
-                    AddToInventory("Гоку");
-                    MessageBox.Show("b");
-                    addDps(10);
-                } else if (charName == "Гохан")
-                {
-                    AddToInventory("Гохан");
-                    MessageBox.Show("c");
-                    addDps(10);
-                } else if (charName == "Ичиго")
-                {
-                    AddToInventory("Ичиго");
-                    MessageBox.Show("d");
-                    addDps(10);
-                }
-            } else
+                OnGetChar(10, "hero27.png");
+            } else if (charName == "Гоку")
             {
-                addCrystals(1);
+                OnGetChar(10, "Goku.png");
+            } else if (charName == "Гохан")
+            {
+                OnGetChar(10, "Gohan.png");
+            } else if (charName == "Ичиго")
+            {
+                OnGetChar(10, "hero16.png");
             }
         }
 
@@ -168,40 +171,23 @@ namespace Clicker
             Inventory.Items.Refresh();
         }
 
-        public void randomChar(Image slot)
+        public void randomChar()
         {
-            randResult = random.Next(1, 100);
-            //switch (randResult)
-            //{
-            //    case 1:
-            //        slot.Source = new BitmapImage(new Uri("Images/heroFaceImages/GokuFace.png", UriKind.Relative));
-            //        break;
-            //    case 2:
-            //        slot.Source = new BitmapImage(new Uri("Images/heroFaceImages/GrayFace.png", UriKind.Relative));
-            //        break;
-            //    case 3:
-            //        slot.Source = new BitmapImage(new Uri("Images/heroFaceImages/GohanFace.png", UriKind.Relative));
-            //        break;
-            //}
-            if(randResult > 0 && randResult < 10)
+            randResult = random.Next(1, 5);
+            switch (randResult)
             {
-                slot.Source = new BitmapImage(new Uri("Images/heroFaceImages/GokuFace.png", UriKind.Relative));
-                charName = "Гоку";
-            }
-            else if (randResult > 10 && randResult < 50)
-            {
-                slot.Source = new BitmapImage(new Uri("Images/heroFaceImages/GrayFace.png", UriKind.Relative));
-                charName = "Грей";
-            }
-            else if (randResult > 50 && randResult < 95)
-            {
-                slot.Source = new BitmapImage(new Uri("Images/heroFaceImages/GohanFace.png", UriKind.Relative));
-                charName = "Гохан";
-            }
-            else if (randResult > 95 && randResult < 101)
-            {
-                slot.Source = new BitmapImage(new Uri("Images/heroFaceImages/IchigoFace.png", UriKind.Relative));
-                charName = "Ичиго";
+                case 1:
+                    changeChar("Грей", Colors.LimeGreen, "GrayFace.png");
+                    break;
+                case 2:
+                    changeChar("Гоку", Colors.Blue, "GokuFace.png");
+                    break;
+                case 3:
+                    changeChar("Гохан", Colors.Purple, "GohanFace.png");
+                    break;
+                case 4:
+                    changeChar("Ичиго", Colors.Orange, "IchigoFace.png");
+                    break;
             }
         }
 
@@ -1387,19 +1373,10 @@ namespace Clicker
             }
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            addCoins(2000);
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            addCrystals(2000);
-        }
-
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-            addCoins(20000);
+            spinCost = 0;
+            spinCostLabel.Content = spinCost;
         }
     }
 }

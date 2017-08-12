@@ -60,3 +60,5 @@ D:\Проекты\Anime Clicker\anime-clicker\Clicker\obj\Debug\Clicker.Properti
 D:\Проекты\Anime Clicker\anime-clicker\Clicker\obj\Debug\Clicker.csproj.GenerateResource.Cache
 D:\Проекты\Anime Clicker\anime-clicker\Clicker\obj\Debug\Anime Clicker.exe
 D:\Проекты\Anime Clicker\anime-clicker\Clicker\obj\Debug\Anime Clicker.pdb
+D:\Проекты\Anime Clicker\anime-clicker\Clicker\obj\Debug\CharInfo.g.cs
+D:\Проекты\Anime Clicker\anime-clicker\Clicker\obj\Debug\CharInfo.baml
