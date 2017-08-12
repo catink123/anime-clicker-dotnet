@@ -18,7 +18,7 @@
         <Grid VerticalAlignment="Top" Height="199">
             <Image x:Name="charImage" Source="Images/miscImages/spinner.gif"/>
         </Grid>
-        <Rectangle x:Name="charColor" Fill="#FF919191" Height="72" Margin="0" Stroke="Black" VerticalAlignment="Bottom" Width="294"/>
+        <Rectangle x:Name="charColor" Fill="#FF919191" Height="72" Margin="0" Stroke="Black" VerticalAlignment="Bottom"/>
         <Label x:Name="charNameLabel" Content="Нажмите на кнопку" Margin="0" VerticalAlignment="Bottom" Height="72" Width="294" FontSize="24" FontFamily="MV Boli" Foreground="White"/>
     </Grid>
 </Window>
