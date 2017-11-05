@@ -76,6 +76,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Characters.cs" />
     <Compile Include="CharInfo.xaml.cs">
       <DependentUpon>CharInfo.xaml</DependentUpon>
     </Compile>
