@@ -1,2 +1,2 @@
-# Anime Clicker C#
+# Anime Clicker .NET
 Discontinued.
