@@ -1,2 +1,2 @@
-# anime-clicker
-быгы
+# Anime Clicker C#
+Discontinued.
